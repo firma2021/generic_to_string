@@ -1,0 +1,3 @@
+/home/firma/cpp_workspace/universal_print/bin/Debug/CMakeFiles/test.dir
+/home/firma/cpp_workspace/universal_print/bin/Debug/CMakeFiles/edit_cache.dir
+/home/firma/cpp_workspace/universal_print/bin/Debug/CMakeFiles/rebuild_cache.dir

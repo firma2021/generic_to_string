@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/firma/cpp_workspace/universal_print/bin/Debug",
+  "command": "/usr/bin/clang++ -g -std=gnu++20 -o CMakeFiles/test.dir/test.cpp.o -c /home/firma/cpp_workspace/universal_print/test.cpp",
+  "file": "/home/firma/cpp_workspace/universal_print/test.cpp",
+  "output": "CMakeFiles/test.dir/test.cpp.o"
+}
+]
