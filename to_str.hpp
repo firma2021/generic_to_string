@@ -33,6 +33,46 @@ using namespace std;
 
 // clang-format off
 template <typename T>
+concept Duration = is_same_v<T, chrono::duration<typename T::rep, typename T::period>>;
+
+template <typename T>
+concept TimePoint = is_same_v<remove_cvref_t<T>, chrono::time_point<typename remove_cvref_t<T>::clock, typename remove_cvref_t<T>::duration>>;
+
+template <typename T>
+concept Any = is_same_v<any, remove_cvref_t<T>>;
+
+template <typename T>
+concept Optional = requires(T t)
+{
+	T {nullopt};
+	requires !Any<T>;
+};
+
+// template <typename T>
+// concept Tuple = requires(T t)
+// {
+// 	requires tuple_size<remove_reference_t<T>>::value == 0;
+// }
+// || requires(T t)
+// {
+// 	requires tuple_size<remove_reference_t<T>>::value > 0;
+// 	typename tuple_element<0, remove_reference_t<T>>::type;
+// 	{ get<0>(t) } -> same_as<typename tuple_element<0, remove_reference_t<T>>::type>;
+// };
+
+template <typename T>
+concept Tuple = requires(T t)
+{
+	tuple_size<remove_reference_t<T>>::value;
+};
+
+template <typename T>
+concept Variant = requires
+{
+    typename variant_size<remove_cvref_t<T>>::value;
+};
+
+template <typename T>
 concept Pointer = is_pointer_v<remove_cvref_t<T>>;
 
 template <typename T>
@@ -71,59 +111,8 @@ concept Set = requires(T t)
 	requires is_same_v<typename remove_reference_t<T>::key_type, typename remove_reference_t<T>::value_type>;
 };
 
-template <typename T>
-concept SequenceContainer = requires(T t) // 只要语法正确即可，不会计算结果
-{
-    t.begin() != t.end();
-    ++t.begin();
-    *t.begin();
-
-	requires !Map<T>;
-	requires !Set<T>;
-};
-
-template <typename T>
-concept ContainerAdaptor = requires(T t)
-{
-	typename remove_reference_t<T>::container_type;
-};
-
-template <typename T>
-concept Tuple = requires(T t)
-{
-	requires tuple_size<remove_reference_t<T>>::value == 0;
-}
-|| requires(T t)
-{
-	requires tuple_size<remove_reference_t<T>>::value > 0;
-	typename tuple_element<0, remove_reference_t<T>>::type;
-	{ get<0>(t) } -> same_as<typename tuple_element<0, remove_reference_t<T>>::type>;
-};
-
 template< typename Derived, typename Base>
 concept derived_from_with_ref = derived_from<remove_reference_t<Derived>, remove_reference_t<Base>>;
-
-template <typename T>
-concept Duration = is_same_v<T, chrono::duration<typename T::rep, typename T::period>>;
-
-template <typename T>
-concept TimePoint = is_same_v<remove_cvref_t<T>, chrono::time_point<typename remove_cvref_t<T>::clock, typename remove_cvref_t<T>::duration>>;
-
-template <typename T>
-concept Any = is_same_v<any, remove_cvref_t<T>>;
-
-template <typename T>
-concept Optional = requires(T t)
-{
-	T {nullopt};
-	requires !Any<T>;
-};
-
-template <typename T>
-concept Variant = requires
-{
-    typename variant_size<T>::value;
-};
 
 template <typename T>
 concept StreamInsertable = requires(ostream& os, T&& obj)
@@ -133,6 +122,24 @@ concept StreamInsertable = requires(ostream& os, T&& obj)
 	requires !Iterator<T>;
 	requires !Arithmetic<T>;
 	requires !TimePoint<T>;
+};
+
+template <typename T>
+concept SequenceContainer = requires(T t) // 只要语法正确即可，不会计算结果
+{
+    t.begin() != t.end();
+    ++t.begin();
+    *t.begin();
+
+	requires !Map<T>;
+	requires !Set<T>;
+	requires !StreamInsertable<T>;
+};
+
+template <typename T>
+concept ContainerAdaptor = requires(T t)
+{
+	typename remove_reference_t<T>::container_type;
 };
 
 // clang-format on
@@ -233,9 +240,22 @@ struct generic_to_string_wrapper
         else if constexpr (is_floating_point_v<remove_reference_t<decltype(number)>>)
         {
             chars_format fmt {};
-            if (flags & ios::scientific) { fmt |= chars_format::scientific; }
-            if (flags & ios::fixed) { fmt |= chars_format::fixed; }
-            if (flags & (ios::scientific | ios::fixed)) { fmt |= chars_format::scientific | chars_format::fixed | chars_format::hex; }
+            if (flags & ios::scientific & ios::fixed)
+            {
+                fmt |= chars_format::hex;
+            }
+            else if (flags & ios::scientific)
+            {
+                fmt |= chars_format::scientific;
+            }
+            else if (flags & ios::fixed)
+            {
+                fmt |= chars_format::fixed;
+            }
+            else
+            {
+                fmt |= chars_format::general;
+            }
 
             res = to_chars(begin(buf), end(buf), number, fmt, os.precision());
 
@@ -476,6 +496,11 @@ struct generic_to_string_wrapper
 
     static void generic_to_string(ostream& os, Variant auto&& variant)
     {
+        constexpr auto constexpr_for = []<size_t... N>(index_sequence<N...>, auto&& f) constexpr
+        {
+            (f.template operator()<N>(), ...);
+        };
+
         constexpr size_t variant_size {variant_size_v<decltype(variant)>};
         if constexpr (variant_size == 0)
         {
@@ -483,20 +508,33 @@ struct generic_to_string_wrapper
         }
         else
         {
-            constexpr size_t current_index = {variant_size - 1};
-            using current_type             = variant_alternative_t<current_index, decltype(current_index)>;
-            os << "variant(" << current_index << ", " << get_typename_from_typeinfo(typeid(current_type)) << ")";
+            if (variant.valueless_by_exception())
+            {
+                os << "variant: valueless by exception";
+            }
+            else
+            {
+                constexpr vector<string> types;
+                constexpr_for(make_index_sequence<variant_size> {}, [&]<size_t n>()
+                              { types.emplace_back(get_type_name<variant_alternative_t<n, remove_reference_t<decltype(variant)>>>()); });
+
+                auto idx {variant.index()};
+                os << "variant<" << idx << ", ";
+                os << types.at(idx) << ">: ";
+
+                auto dump = [&os](auto&& arg)
+                { generic_to_string(os, forward(arg)); };
+
+                visit(dump, variant);
+            }
         }
-
-        auto dump = [&os](auto&& arg)
-        { generic_to_string(os, arg); };
-
-        visit(dump, variant);
     }
 
     static void generic_to_string(ostream& os, Any auto&& any)
     {
-        os << "any<" << get_typename_from_typeinfo(any.type()) << '>';
+        os << "any<";
+        get_typename_from_typeinfo(os, any.type());
+        os << '>';
     }
 
     static void generic_to_string(ostream& os, Duration auto&& d)

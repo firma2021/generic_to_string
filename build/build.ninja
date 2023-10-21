@@ -325,6 +325,70 @@ build test/test_time: CXX_EXECUTABLE_LINKER__test_time_Debug test/CMakeFiles/tes
   TARGET_FILE = test/test_time
   TARGET_PDB = test_time.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_tuple
+
+
+#############################################
+# Order-only phony target for test_tuple
+
+build cmake_object_order_depends_target_test_tuple: phony || test/CMakeFiles/test_tuple.dir
+
+build test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o: CXX_COMPILER__test_tuple_unscanned_Debug /home/firma/桌面/universal_print/test/test_tuple.cpp || cmake_object_order_depends_target_test_tuple
+  DEP_FILE = test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_tuple.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_tuple.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_tuple
+
+
+#############################################
+# Link the executable test/test_tuple
+
+build test/test_tuple: CXX_EXECUTABLE_LINKER__test_tuple_Debug test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_tuple.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_tuple
+  TARGET_PDB = test_tuple.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_variant
+
+
+#############################################
+# Order-only phony target for test_variant
+
+build cmake_object_order_depends_target_test_variant: phony || test/CMakeFiles/test_variant.dir
+
+build test/CMakeFiles/test_variant.dir/test_variant.cpp.o: CXX_COMPILER__test_variant_unscanned_Debug /home/firma/桌面/universal_print/test/test_variant.cpp || cmake_object_order_depends_target_test_variant
+  DEP_FILE = test/CMakeFiles/test_variant.dir/test_variant.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_variant.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_variant.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_variant
+
+
+#############################################
+# Link the executable test/test_variant
+
+build test/test_variant: CXX_EXECUTABLE_LINKER__test_variant_Debug test/CMakeFiles/test_variant.dir/test_variant.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_variant.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_variant
+  TARGET_PDB = test_variant.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -368,6 +432,10 @@ build test_set: phony test/test_set
 
 build test_time: phony test/test_time
 
+build test_tuple: phony test/test_tuple
+
+build test_variant: phony test/test_variant
+
 # =============================================================================
 # Folder targets.
 
@@ -383,7 +451,7 @@ build all: phony test/all
 #############################################
 # Folder: /home/firma/桌面/universal_print/build/test
 
-build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time
+build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant
 
 # =============================================================================
 # Built-in targets

@@ -46,5 +46,17 @@
   "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_time.dir/test_time.cpp.o -c /home/firma/桌面/universal_print/test/test_time.cpp",
   "file": "/home/firma/桌面/universal_print/test/test_time.cpp",
   "output": "test/CMakeFiles/test_time.dir/test_time.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o -c /home/firma/桌面/universal_print/test/test_tuple.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_tuple.cpp",
+  "output": "test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_variant.dir/test_variant.cpp.o -c /home/firma/桌面/universal_print/test/test_variant.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_variant.cpp",
+  "output": "test/CMakeFiles/test_variant.dir/test_variant.cpp.o"
 }
 ]

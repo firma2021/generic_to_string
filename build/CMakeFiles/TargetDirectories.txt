@@ -8,5 +8,7 @@
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_set.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_map.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_time.dir
+/home/firma/桌面/universal_print/build/test/CMakeFiles/test_tuple.dir
+/home/firma/桌面/universal_print/build/test/CMakeFiles/test_variant.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/edit_cache.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/rebuild_cache.dir

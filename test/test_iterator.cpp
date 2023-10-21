@@ -1,5 +1,7 @@
 #include <deque>
 #include <forward_list>
+#include <fstream>
+#include <iterator>
 #include <list>
 #include <map>
 #include <set>
@@ -23,4 +25,9 @@ int main()
     gout << multimap<int, int> {}.begin() << '\n';
     gout << unordered_map<int, int> {}.begin() << '\n';
     gout << unordered_multimap<int, int> {}.begin() << '\n';
+    gout << istreambuf_iterator<char> {cin} << '\n';
+    gout << ostreambuf_iterator<char> {cout} << '\n';
+    fstream fs;
+    gout << istream_iterator<float> {fs} << '\n';
+    gout << ostream_iterator<double> {fs, ""} << '\n';
 }

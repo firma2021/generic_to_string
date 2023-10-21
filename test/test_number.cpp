@@ -1,4 +1,5 @@
 #include "../to_str.hpp"
+#include <ios>
 
 int main()
 {
@@ -13,6 +14,7 @@ int main()
     const bool    tr {true};
     volatile bool fa {false};
 
+    gout << boolalpha;
     gout << tr << '\n';
     gout << fa << '\n';
 }
