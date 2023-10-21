@@ -501,7 +501,7 @@ struct generic_to_string_wrapper
             (f.template operator()<N>(), ...);
         };
 
-        constexpr size_t variant_size {variant_size_v<decltype(variant)>};
+        constexpr size_t variant_size {variant_size_v<remove_reference_t<decltype(variant)>>};
         if constexpr (variant_size == 0)
         {
             os << "empty variant";
@@ -525,7 +525,7 @@ struct generic_to_string_wrapper
                 auto dump = [&os](auto&& arg)
                 { generic_to_string(os, forward(arg)); };
 
-                visit(dump, variant);
+                visit(dump, forward(variant));
             }
         }
     }
