@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_any.dir/test_any.cpp.o -c /home/firma/桌面/universal_print/test/test_any.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_any.cpp",
+  "output": "test/CMakeFiles/test_any.dir/test_any.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o -c /home/firma/桌面/universal_print/test/test_iterator.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_iterator.cpp",
+  "output": "test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_number.dir/test_number.cpp.o -c /home/firma/桌面/universal_print/test/test_number.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_number.cpp",
+  "output": "test/CMakeFiles/test_number.dir/test_number.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o -c /home/firma/桌面/universal_print/test/test_pointer.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_pointer.cpp",
+  "output": "test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_self.dir/test_self.cpp.o -c /home/firma/桌面/universal_print/test/test_self.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_self.cpp",
+  "output": "test/CMakeFiles/test_self.dir/test_self.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_set.dir/test_set.cpp.o -c /home/firma/桌面/universal_print/test/test_set.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_set.cpp",
+  "output": "test/CMakeFiles/test_set.dir/test_set.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_map.dir/test_map.cpp.o -c /home/firma/桌面/universal_print/test/test_map.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_map.cpp",
+  "output": "test/CMakeFiles/test_map.dir/test_map.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_time.dir/test_time.cpp.o -c /home/firma/桌面/universal_print/test/test_time.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_time.cpp",
+  "output": "test/CMakeFiles/test_time.dir/test_time.cpp.o"
+}
+]

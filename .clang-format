@@ -1,0 +1,527 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+Language: Cpp
+DisableFormat: false
+
+# BasedOnStyle:  Microsoft
+# 可选:
+# - LLVM: https://llvm.org/docs/CodingStandards.html
+# - Google: https://google.github.io/styleguide/cppguide.html
+# - Chromium: https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md
+# - Mozilla: https://firefox-source-docs.mozilla.org/code-quality/coding-style/index.html
+# - WebKit: https://www.webkit.org/coding/coding-style.html
+# - Microsoft: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+# - GNU: https://www.gnu.org/prep/standards/standards.html
+# - InheritParentConfig
+# - None
+
+
+AccessModifierOffset: -4
+
+# ----------------------------------------对齐设置---------------------------------------
+
+# someLongFunction(argument1,
+#                  argument2);
+AlignAfterOpenBracket: Align
+
+# struct test demo[] =
+# {
+# 	{56,    23, "hello"},
+# 	{-1, 93463, "world"},
+# 	{ 7,     5,    "!!"}
+# };
+AlignArrayOfStructures: Right
+
+# 出现多行赋值语句时，是否对齐赋值运算符
+AlignConsecutiveAssignments:
+  Enabled:         true
+  AcrossEmptyLines: false
+  AcrossComments:  false
+  AlignCompound:   true
+  PadOperators:    true
+
+# 结构体位域对齐
+AlignConsecutiveBitFields:
+  Enabled:         true
+  AcrossEmptyLines: false
+  AcrossComments:  false
+
+# 出现多行变量声明时，在类型后面添加空白，对齐到变量名
+AlignConsecutiveDeclarations:
+  Enabled:         true
+  AcrossEmptyLines: false
+  AcrossComments:  false
+
+# 出现多行宏时，在宏名后添加空白，根据宏定义对齐
+AlignConsecutiveMacros:
+  Enabled:         true
+  AcrossEmptyLines: false
+  AcrossComments:  false
+
+# 对齐\符至最右边的列
+# #define A                                                                      \
+#   int aaaa;                                                                    \
+#   int b;                                                                       \
+#   int dddddddddd;
+AlignEscapedNewlines: Right
+
+
+# int aaa = bbbbbbbbbbbbbbb +
+#           ccccccccccccccc;
+AlignOperands:   Align
+
+# 不对齐尾部注释，但会应用其它的格式化：在注释符前只保留一个空白
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 1
+
+
+# ----------------------------------------语句换行设置---------------------------------------
+
+# callFunction(
+#     a, b, c, d);
+AllowAllArgumentsOnNextLine: true
+
+# void myFunction(
+#     int a, int b, int c, int d, int e);
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# 允许短枚举在单行上
+AllowShortEnumsOnASingleLine: true
+
+# 允许短语法块在单行上？
+# Always | Never | Empty(只允许空块到单行上)
+AllowShortBlocksOnASingleLine: Always
+
+# 允许短函数在单行上？
+# None | InlineOnly(仅类成员函数) | Empty | Inline(类成员函数及空函数) | ALL
+AllowShortFunctionsOnASingleLine: Inline
+
+# 允许短的if语句在单行上？
+# Never | WithoutElse OnlyFirstIf | AllIfAndElse
+AllowShortIfStatementsOnASingleLine: WithoutElse
+
+# 允许短的case标签在单行上？
+AllowShortCaseLabelsOnASingleLine: false
+
+# 允许短的Lambda函数在单行上？
+# None | Empty | Inline(仅当Lambda函数作为变量) | All
+AllowShortLambdasOnASingleLine: All
+
+# 允许短的循环体在单行上？如while (true) continue;
+AllowShortLoopsOnASingleLine: true
+
+# 总在模板声明后换行？
+# No | MultiLine | Yes
+AlwaysBreakTemplateDeclarations: MultiLine
+
+# Return类型后是否换行？
+AlwaysBreakAfterReturnType: None
+
+# 总在多行字符串字面量字符串前换行？
+# true:                                  false:
+# aaaa =                         vs.     aaaa = "bbbb"
+#     "bbbb"                                    "cccc";
+#     "cccc";
+AlwaysBreakBeforeMultilineStrings: false
+
+
+# 这些字符串应当被解释为字符串而不是标识符，用于语言扩展或静态分析注解
+AttributeMacros: ['__capability', '__output', '__ununsed']
+
+# 作用于函数实参。
+# 设置为false时，效果如下：
+# void f() {
+#   f(aaaaaaaaaaaaaaaaaaaa,
+#     aaaaaaaaaaaaaaaaaaaa,
+#     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+# }
+# 而不是
+# void f() {
+#   f(aaaaaaaaaaaaaaaaaaaa, aaaaaaaaaaaaaaaaaaaa,
+#     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+# }
+BinPackArguments: false
+
+# 作用于函数形参
+# void f(int aaaaaaaaaaaaaaaaaaaa,
+#        int aaaaaaaaaaaaaaaaaaaa,
+#        int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) {}
+BinPackParameters: false
+
+# 位域列的空白风格
+# Both的效果是 unsigned bf : 2;
+# Both | None | Before | After
+BitFieldColonSpacing: Both
+
+# ----------------------------------------括号换行设置---------------------------------------
+
+# 自定义大括号换行风格
+BreakBeforeBraces: Custom
+
+# 大括号换行
+# AfterControlStatement的可选项：Never | MultiLine | Always
+# BeforeWhile：在do while语句中的while前换行
+# SplitEmpty...: 将空的{}换行成两行
+BraceWrapping:
+  AfterCaseLabel:  true
+  AfterClass:      true
+  AfterControlStatement: Always
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterStruct:     true
+  AfterUnion:      true
+  AfterExternBlock: true
+  BeforeCatch:     true
+  BeforeElse:      true
+  BeforeLambdaBody: true
+  BeforeWhile:     true
+  IndentBraces:    false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+# ----------------------------------------断行设置---------------------------------------
+
+# 将长的赋值语句，根据运算符，断成短的几行
+# 可选项：None | NonAssignment | All
+# NonAssignment 的效果是：
+# LooooooooooongType loooooooooooooooooooooongVariable =
+#     someLooooooooooooooooongFunction();
+
+# bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                      + aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                  == aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#              && aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#                     > ccccccccccccccccccccccccccccccccccccccccc;
+BreakBeforeBinaryOperators: NonAssignment
+
+# 可选项为 Never | Allowed(根据上下文) | Always
+# Always的效果是
+# template <typename T>
+# concept C = ...;
+BreakBeforeConceptDeclarations: Always
+
+# 将三元运算符放在第二行
+# veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription
+#     ? firstValue
+#     : SecondValueVeryVeryVeryVeryLong;
+BreakBeforeTernaryOperators: true
+
+# Constructor() :
+#     initializer1(),
+#     initializer2()
+BreakConstructorInitializers: AfterColon
+
+# 是否将整个继承列表换行
+BreakInheritanceList: BeforeColon
+
+# const char* x = "veryVeryVeryVeryVeryVe"
+#                 "ryVeryVeryVeryVeryVery"
+#                 "VeryLongString";
+BreakStringLiterals: true
+
+
+# 列的长度限制，超过此限制后断行。 0表示无限制
+ColumnLimit: 0
+
+# 正则表达式，描述具有特殊含义，不应该被修改的注释
+# CommentPragmas:''
+
+
+# 紧凑名字空间？
+# namespace Foo { namespace Bar {
+# }}
+CompactNamespaces: false
+
+# 初始化列表的缩进字符数
+ConstructorInitializerIndentWidth: 0
+
+# 行太长，断行后，新行的缩进字符数
+# int i =         //  VeryVeryVeryVeryVeryLongComment
+#     longFunction( // Again a long comment
+#         arg);
+ContinuationIndentWidth: 4
+
+# 没有空格的统一初始化大括号风格
+# true:                                  false:
+# vector<int> x{1, 2, 3, 4};     vs.     vector<int> x{ 1, 2, 3, 4 };
+# vector<T> x{{}, {}, {}, {}};           vector<T> x{ {}, {}, {}, {} };
+# f(MyMap[{composite, key}]);            f(MyMap[{ composite, key }]);
+# new int[3]{1, 2, 3};                   new int[3]{ 1, 2, 3 };
+Cpp11BracedListStyle: true
+
+
+# 将PointerAlignment作为备用，分析文件中指针的对齐方式，并使用这个对齐方式
+DerivePointerAlignment: false
+
+# 移除private等访问限定符后的空行
+EmptyLineAfterAccessModifier: Never
+
+# 当访问修饰符修饰一个新的逻辑块（数据成员或成员函数）时，在修饰符前添加空行
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+# 在名字空间结尾添加结束注释 // namespace xxx
+FixNamespaceComments: true
+
+# 名字空间的行数大于该值时，才在名字空间结尾添加结束注释
+ShortNamespaceLines: 1
+
+# 应该被解释为foreach循环而不是函数调用的宏
+ForEachMacros: ['foreach', 'Q_FOREACH', 'BOOST_FOREACH', 'RANGES_FOR', 'FOREACH']
+
+
+# 应该被解释为if语句而不是函数调用的宏
+IfMacros: ['IF']
+
+
+# 是否对include语句重新分组
+# 可选项： Preserve | Merge | Regroup
+# Regroup的效果为：
+# #include "b.h"               into      #include "a.h"
+                                       #include "b.h"
+# #include <lib/main.h>
+# #include "a.h"                         #include <lib/main.h>
+IncludeBlocks:   Preserve
+
+# 排序include<xxx>语句
+# 可选项： Never | CaseSensitive | CaseInsensitive
+SortIncludes: CaseInsensitive
+
+# 用正则表达式配置排序算法
+# IncludeCategories:
+#   - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+#    Priority:        2
+#    SortPriority:    2
+#    CaseSensitive:   true
+#  - Regex:           '^((<|")(gtest|gmock|isl|json)/)'
+#    Priority:        3
+#  - Regex:           '<[[:alnum:].]+>'
+#    Priority:        4
+#  - Regex:           '.*'
+#    Priority:        1
+#    SortPriority:    0
+# IncludeIsMainRegex: '(Test)?$'
+# IncludeIsMainSourceRegex: ''
+
+# ----------------------------------------断行设置---------------------------------------
+
+# 缩进宽度
+IndentWidth: 4
+
+# 缩进访问控制修饰符
+# false:                                 true:
+# class C {                      vs.     class C {
+#   class D {                                class D {
+#     void bar();                                void bar();
+#   protected:                                 protected:
+#     D();                                       D();
+#   };                                       };
+# public:                                  public:
+#   C();                                     C();
+# };                                     };
+# void foo() {                           void foo() {
+#   return 1;                              return 1;
+# }                                      }
+IndentAccessModifiers: false
+
+# 缩进case标签和case块
+IndentCaseLabels: true
+IndentCaseBlocks: true
+
+# 缩进goto的label
+IndentGotoLabels: true
+
+# 预处理指令的缩进
+# BeforeHash的效果为：
+# #if FOO
+#   #if BAR
+#     #include <foo>
+#   #endif
+# #endif
+IndentPPDirectives: BeforeHash
+
+# 缩进 extern "C"块中的内容
+# AfterExternBlock：如果BraceWrapping.AfterExternBlock为true,则缩进
+IndentExternBlock: AfterExternBlock
+
+# 缩进模板require子句
+# false的效果为不缩进：
+# template <typename It>
+# requires Iterator<It>
+IndentRequiresClause: true
+
+# 如果函数定义或声明在类型之后换行，是否缩进？
+# false的效果为
+# LoooooooooooooooooooooooooooooooooooooooongReturnType
+# LoooooooooooooooooooooooooooooooongFunctionDeclaration();
+IndentWrappedFunctionNames: false
+
+# 在控制语句(if/else/for/do/while)后插入大括号？
+# clang-format缺乏完整的语义信息，可能导致错误的代码格式
+InsertBraces: true
+
+# 在块开始处留空行，true的效果为
+# if (foo) {
+#
+#   bar();
+# }
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# lambda函数体的缩进
+# 可选项：
+# Signature：相对于lambda函数签名对齐
+# OuterScope：相对于lambda函数签名所在的外部作用域的缩进级别对齐
+LambdaBodyIndentation: Signature
+
+
+MacroBlockBegin: ''
+MacroBlockEnd:   ''
+
+# 要保留的连续空行的最大数目
+MaxEmptyLinesToKeep: 1
+
+# 名字空间的缩进：不缩进
+NamespaceIndentation: None
+
+# 指针对齐
+# 可选项：Left | Right | Middle
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+
+#Constructor() : a(), b()
+#
+#Constructor()
+#    : aaaaaaaaaaaaaaaaaaaa(), bbbbbbbbbbbbbbbbbbbb(), ddddddddddddd()
+#
+#Constructor()
+#    : aaaaaaaaaaaaaaaaaaaa(),
+#      bbbbbbbbbbbbbbbbbbbb(),
+#      cccccccccccccccccccc()
+PackConstructorInitializers: NextLine
+
+# 修饰符对齐(const/volatile)
+# - Leave(保持原状) | Left | Right | Custom(根据QualifierOrder对齐)
+# QualifierOrder中，在type左边的项目将被放置在类型的左边
+QualifierAlignment: Custom
+QualifierOrder: ['friend', 'inline', 'static', 'constexpr', 'const', 'volatile', 'restrict', 'type']
+
+
+# 预处理对齐宽度
+PPIndentWidth:   -1
+
+# 重新排版注释
+ReflowComments:  false
+
+# 移除if/else/for/while中可以去掉的大括号，可能带来错误
+RemoveBracesLLVM: false
+
+# 总是把require子句放在单独的一行上
+RequiresClausePosition: OwnLine
+
+# require表达式缩进
+# 可选项：OuterScope | Keyword，效果分别为
+# template <typename T>
+# concept C = requires(T t) {
+#   ...
+# }
+# 和
+# template <typename T>
+# concept C = requires(T t) {
+#               ...
+#             }
+RequiresExpressionIndentation: OuterScope
+
+# 移除函数体大括号后面多余的分号，可能带来未知的风险
+RemoveSemicolon: false
+
+
+# 是否分隔不同的定义块？
+# 例如，int i, j, k;是一行，下一行是class C {};在这两个定义块间，是否插入空行？
+# 可选项:- Leave(保留原样) | Always | Never(移除定义块间的空行)
+SeparateDefinitionBlocks: Leave
+
+# 排序using语句
+SortUsingDeclarations: true
+
+# 是否在c风格类型转换后插入空白符,如(int) i;
+SpaceAfterCStyleCast: false
+
+# 是否在逻辑!操作符后面插入空白符
+SpaceAfterLogicalNot: false
+
+# 是否在template关键字之后插入空格
+SpaceAfterTemplateKeyword: true
+
+# 赋值运算符前是否添加空格
+SpaceBeforeAssignmentOperators: true
+
+# case语句的冒号前是否添加空格，如 case 1 : break;
+SpaceBeforeCaseColon: false
+
+# 统一初始化列表的大括号前是否插入空格，如Foo {};
+SpaceBeforeCpp11BracedList: true
+
+# 初始化列表的冒号前是否插入空格, 即在下划线处插入空格：Foo()_: a(a) {}
+SpaceBeforeCtorInitializerColon: false
+
+# 继承列表的冒号前是否插入空格, 即class Foo_: Bar {}
+SpaceBeforeInheritanceColon: true
+
+# 在圆括号前插入空格？
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+
+# 在指针限定符之前或之后放置空格？ 根据PointerAlignment判断
+SpaceAroundPointerQualifiers: Default
+
+# 在基于范围的for循环冒号前添加空格，如 for (auto v : values) {}
+SpaceBeforeRangeBasedForLoopColon: true
+
+# 在{}中插入空格
+SpaceInEmptyBlock: true
+
+# 在{}中插入空格？ 如void f( ) {};
+SpaceInEmptyParentheses: false
+
+# 尾随行注释 前的空格数(  //-comments)
+SpacesBeforeTrailingComments: 3
+
+# 尖括号中插入空格？ 如static_cast< int >(arg);
+SpacesInAngles:  Never
+
+# 条件语句的圆括号中插入空格？ 如 if ( a )  { ... }
+SpacesInConditionalStatement: false
+
+# 容器字面量中插入空格？ 如 var arr = [ 1, 2, 3 ];
+SpacesInContainerLiterals: false
+
+# C风格强制类型转换的圆括号中插入空白？ 如x = ( int32 )y
+SpacesInCStyleCastParentheses: false
+
+# 行注释的开头允许有多少空格？ 如// One space is forced
+# -1表示不显示最大值
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+
+# 在圆括号内的前后添加空格？ 如 t f( Deleted & ) & = delete;
+SpacesInParentheses: false
+
+# 在方括号内的前后添加空格？ 如 int a[ 5 ];
+SpacesInSquareBrackets: false
+
+# 方括号前添加空格，如 int a [5][5];
+SpaceBeforeSquareBrackets: false
+
+# C++标准
+Standard: Latest
+
+# Tab的宽度, 替换为空格
+TabWidth: 4
+
+# 换行时使用\r\n而不是\n
+UseCRLF: false
+
+# 在格式化后的结果文件中使用Tab
+UseTab: Never
