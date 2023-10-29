@@ -58,5 +58,23 @@
   "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_variant.dir/test_variant.cpp.o -c /home/firma/桌面/universal_print/test/test_variant.cpp",
   "file": "/home/firma/桌面/universal_print/test/test_variant.cpp",
   "output": "test/CMakeFiles/test_variant.dir/test_variant.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_enum.dir/test_enum.cpp.o -c /home/firma/桌面/universal_print/test/test_enum.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_enum.cpp",
+  "output": "test/CMakeFiles/test_enum.dir/test_enum.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o -c /home/firma/桌面/universal_print/test/test_container_adaptor.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_container_adaptor.cpp",
+  "output": "test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_istream.dir/test_istream.cpp.o -c /home/firma/桌面/universal_print/test/test_istream.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_istream.cpp",
+  "output": "test/CMakeFiles/test_istream.dir/test_istream.cpp.o"
 }
 ]

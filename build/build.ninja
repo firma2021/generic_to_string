@@ -389,6 +389,102 @@ build test/test_variant: CXX_EXECUTABLE_LINKER__test_variant_Debug test/CMakeFil
   TARGET_FILE = test/test_variant
   TARGET_PDB = test_variant.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_enum
+
+
+#############################################
+# Order-only phony target for test_enum
+
+build cmake_object_order_depends_target_test_enum: phony || test/CMakeFiles/test_enum.dir
+
+build test/CMakeFiles/test_enum.dir/test_enum.cpp.o: CXX_COMPILER__test_enum_unscanned_Debug /home/firma/桌面/universal_print/test/test_enum.cpp || cmake_object_order_depends_target_test_enum
+  DEP_FILE = test/CMakeFiles/test_enum.dir/test_enum.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_enum.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_enum.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_enum
+
+
+#############################################
+# Link the executable test/test_enum
+
+build test/test_enum: CXX_EXECUTABLE_LINKER__test_enum_Debug test/CMakeFiles/test_enum.dir/test_enum.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_enum.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_enum
+  TARGET_PDB = test_enum.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_container_adaptor
+
+
+#############################################
+# Order-only phony target for test_container_adaptor
+
+build cmake_object_order_depends_target_test_container_adaptor: phony || test/CMakeFiles/test_container_adaptor.dir
+
+build test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o: CXX_COMPILER__test_container_adaptor_unscanned_Debug /home/firma/桌面/universal_print/test/test_container_adaptor.cpp || cmake_object_order_depends_target_test_container_adaptor
+  DEP_FILE = test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_container_adaptor.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_container_adaptor.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_container_adaptor
+
+
+#############################################
+# Link the executable test/test_container_adaptor
+
+build test/test_container_adaptor: CXX_EXECUTABLE_LINKER__test_container_adaptor_Debug test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_container_adaptor.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_container_adaptor
+  TARGET_PDB = test_container_adaptor.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_istream
+
+
+#############################################
+# Order-only phony target for test_istream
+
+build cmake_object_order_depends_target_test_istream: phony || test/CMakeFiles/test_istream.dir
+
+build test/CMakeFiles/test_istream.dir/test_istream.cpp.o: CXX_COMPILER__test_istream_unscanned_Debug /home/firma/桌面/universal_print/test/test_istream.cpp || cmake_object_order_depends_target_test_istream
+  DEP_FILE = test/CMakeFiles/test_istream.dir/test_istream.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_istream.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_istream.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_istream
+
+
+#############################################
+# Link the executable test/test_istream
+
+build test/test_istream: CXX_EXECUTABLE_LINKER__test_istream_Debug test/CMakeFiles/test_istream.dir/test_istream.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_istream.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_istream
+  TARGET_PDB = test_istream.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -417,6 +513,12 @@ build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
 # Target aliases.
 
 build test_any: phony test/test_any
+
+build test_container_adaptor: phony test/test_container_adaptor
+
+build test_enum: phony test/test_enum
+
+build test_istream: phony test/test_istream
 
 build test_iterator: phony test/test_iterator
 
@@ -451,7 +553,7 @@ build all: phony test/all
 #############################################
 # Folder: /home/firma/桌面/universal_print/build/test
 
-build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant
+build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream
 
 # =============================================================================
 # Built-in targets

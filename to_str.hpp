@@ -2,7 +2,9 @@
 // Created by kiki on 2022/9/25.17:29
 
 #pragma once
+
 #include "get_demangled_name.hpp"
+#include "get_enum_name.hpp"
 #include "get_type_name.hpp"
 #include <algorithm>
 #include <any>
@@ -48,28 +50,22 @@ concept Optional = requires(T t)
 	requires !Any<T>;
 };
 
-// template <typename T>
-// concept Tuple = requires(T t)
-// {
-// 	requires tuple_size<remove_reference_t<T>>::value == 0;
-// }
-// || requires(T t)
-// {
-// 	requires tuple_size<remove_reference_t<T>>::value > 0;
-// 	typename tuple_element<0, remove_reference_t<T>>::type;
-// 	{ get<0>(t) } -> same_as<typename tuple_element<0, remove_reference_t<T>>::type>;
-// };
-
 template <typename T>
 concept Tuple = requires(T t)
 {
-	tuple_size<remove_reference_t<T>>::value;
+	requires tuple_size<remove_reference_t<T>>::value == 0;
+}
+|| requires(T t)
+{
+	requires tuple_size<remove_reference_t<T>>::value > 0;
+	requires is_same_v< remove_reference_t<decltype(get<0>(t))>, tuple_element_t<0, remove_reference_t<T>> >;
 };
 
 template <typename T>
-concept Variant = requires
+concept Variant = requires(T t)
 {
-    typename variant_size<remove_cvref_t<T>>::value;
+	t.index();
+	t.valueless_by_exception();
 };
 
 template <typename T>
@@ -79,7 +75,14 @@ template <typename T>
 concept Iterator = requires(T t)
 {
 	requires !Pointer<T>;
-	typename iterator_traits<T>::iterator_category;
+	typename iterator_traits<remove_reference_t<T>>::iterator_category;
+};
+
+template <typename T>
+concept IteratorAdaptor = requires(T t)
+{
+	requires Iterator<T>;
+	t.base();
 };
 
 template <typename T>
@@ -89,6 +92,9 @@ concept SmartPointer = requires(T t)
     { t.operator*() } -> same_as<decltype(*declval<T>().get())>;
     t.operator bool();
 };
+
+template <typename T>
+concept Enumeration = is_enum_v<remove_reference_t<T>>;
 
 template <typename T>
 concept Arithmetic = is_arithmetic_v<remove_cvref_t<T>> && !is_same_v<char, remove_cvref_t<T>>;
@@ -140,7 +146,22 @@ template <typename T>
 concept ContainerAdaptor = requires(T t)
 {
 	typename remove_reference_t<T>::container_type;
+	remove_cvref_t<T>{}.pop();
 };
+
+template <typename T>
+concept Frontable = requires(T t)
+{
+	t.front();
+};
+template <typename T>
+concept Topable = requires(T t)
+{
+	t.top();
+};
+
+template <typename T>
+concept InputStream = derived_from<remove_reference_t<T>, istream>;
 
 // clang-format on
 struct generic_to_string_wrapper
@@ -187,6 +208,10 @@ struct generic_to_string_wrapper
 
         vector cate_name {"input_iterator", "output_iterator", "forward_iterator", "bidirectional_iterator", "random_access_iterator"};
 
+        if constexpr (IteratorAdaptor<decltype(iter)>)
+        {
+            os << "[iterator adaptor] ";
+        }
         os << cate_name[current_index];
         os << " to" << get_type_name<typename remove_cvref_t<decltype(iter)>::value_type>();
     }
@@ -205,7 +230,7 @@ struct generic_to_string_wrapper
         };
 
         auto              flags {os.flags()};
-        array<char, 1024> buf;
+        array<char, 1024> buf {};
         to_chars_result   res {};
         bool              failed {};
 
@@ -215,9 +240,9 @@ struct generic_to_string_wrapper
         }
         else if constexpr (is_integral_v<remove_reference_t<decltype(number)>>)
         {
-            int base = flags & ios::dec ? 10 : flags & ios::oct ? 8
-                                           : flags & ios::hex   ? 16
-                                                                : 0;
+            const int base = flags & ios::dec ? 10 : flags & ios::oct ? 8
+                                                 : flags & ios::hex   ? 16
+                                                                      : 0;
 
             if (base == 0)
             {
@@ -274,6 +299,11 @@ struct generic_to_string_wrapper
             cerr << "std::to_chars() failed";
             os << number;
         }
+    }
+
+    static void generic_to_string(ostream& os, Enumeration auto&& enumer)
+    {
+        get_enum_name(os, enumer);
     }
 
     // 对象内含的元素个数超过这个值后，打印元素个数
@@ -363,13 +393,13 @@ struct generic_to_string_wrapper
     static void generic_to_string(ostream& os, Map auto&& map)
     {
         os << '{';
-        auto iter {begin(map)};
-        auto end_iter {end(map)};
+        auto iter {cbegin(map)};
+        auto end_iter {cend(map)};
         for (; iter != end_iter;)
         {
-            generic_to_string(os, std::forward<decltype(*iter)>(*iter.first));
+            generic_to_string(os, std::forward<decltype(iter->first)>(iter->first));
             os << ':';
-            generic_to_string(os, std::forward<decltype(*iter)>(*iter.second));
+            generic_to_string(os, std::forward<decltype((iter->second))>(iter->second));
             if (++iter != end_iter) [[likely]] { os << ' '; }
         }
         os << '}';
@@ -377,27 +407,31 @@ struct generic_to_string_wrapper
 
     static void generic_to_string(ostream& os, ContainerAdaptor auto&& adaptor)
     {
-        decltype(auto) copy {adaptor};
+        remove_cvref_t<decltype(adaptor)> copy {adaptor};
 
         os << '[';
 
-        if constexpr (declval<decltype(adaptor)>().top())
+        if constexpr (Topable<decltype(adaptor)>)
         {
-            while (!copy.empty())
+            while (copy.size() > 1)
             {
-                generic_to_string(os, std::forward(copy.top()));
+                generic_to_string(os, copy.top());
                 copy.pop();
                 os << ' ';
             }
+
+            if (!copy.empty()) { generic_to_string(os, copy.top()); }
         }
-        else if constexpr (declval<decltype(adaptor)>().front())
+        else if constexpr (Frontable<decltype(adaptor)>)
         {
-            while (!copy.empty())
+            while (copy.size() > 1)
             {
-                generic_to_string(os, std::forward(copy.front()));
+                generic_to_string(os, copy.front());
                 copy.pop();
                 os << ' ';
             }
+
+            if (!copy.empty()) { generic_to_string(os, copy.front()); }
         }
         else
         {
@@ -406,7 +440,7 @@ struct generic_to_string_wrapper
         os << ']';
     }
 
-    static void generic_to_string(ostream& os, istream& input_stream)
+    static void generic_to_string(ostream& os, InputStream auto&& input_stream)
     {
         os << "input stream with state: ";
 
@@ -453,7 +487,7 @@ struct generic_to_string_wrapper
 
         auto count_line = [](istream& input_stream, ostream::pos_type beg_pos)
         {
-            size_t line_tally {0};
+            size_t line_tally {1};
 
             for_each(istreambuf_iterator<char> {input_stream},
                      istreambuf_iterator<char> {},
@@ -465,7 +499,7 @@ struct generic_to_string_wrapper
                          }
                      });
 
-            input_stream.seekg(beg_pos);   // 没有读取EOF字符，流仍是正常状态
+            input_stream.seekg(beg_pos);
 
             return line_tally;
         };
@@ -476,7 +510,7 @@ struct generic_to_string_wrapper
 
         os << "input stream with size " << stream_size << ", line " << line_tally
            << '\n'
-           << os.rdbuf();
+           << input_stream.rdbuf();
 
         input_stream.seekg(beg_pos);
     }
@@ -514,18 +548,18 @@ struct generic_to_string_wrapper
             }
             else
             {
-                constexpr vector<string> types;
-                constexpr_for(make_index_sequence<variant_size> {}, [&]<size_t n>()
-                              { types.emplace_back(get_type_name<variant_alternative_t<n, remove_reference_t<decltype(variant)>>>()); });
+                vector<string_view> types;
+                constexpr_for(make_index_sequence<variant_size> {}, [&]<size_t n>() mutable
+                              { types.push_back(get_type_name<variant_alternative_t<n, remove_reference_t<decltype(variant)>>>()); });
 
                 auto idx {variant.index()};
                 os << "variant<" << idx << ", ";
                 os << types.at(idx) << ">: ";
 
                 auto dump = [&os](auto&& arg)
-                { generic_to_string(os, forward(arg)); };
+                { generic_to_string(os, std::forward<decltype(arg)>(arg)); };
 
-                visit(dump, forward(variant));
+                visit(dump, std::forward<decltype(variant)>(variant));
             }
         }
     }
@@ -596,6 +630,12 @@ public:
     }
 
     ostream& get() { return os; }
+
+    template <typename... Args>
+    void operator()(Args&&... args)
+    {
+        (generic_to_string_wrapper::generic_to_string(os, std::forward<Args>(args)), ...);
+    }
 };
 
 class generic_osyncstream

@@ -11,18 +11,18 @@
 
 int main()
 {
-    gout << vector<int> {}.begin() << '\n';
+    gout << vector<int> {}.rbegin() << '\n';
     gout << array<int, 3> {}.begin() << '\n';
     gout << string {}.begin() << '\n';
     gout << deque<int> {}.begin() << '\n';
     gout << forward_list<int> {}.begin() << '\n';
-    gout << list<int> {}.begin() << '\n';
+    gout << list<int> {}.rbegin() << '\n';
     gout << set<int> {}.begin() << '\n';
-    gout << multiset<int> {}.begin() << '\n';
+    gout << multiset<int> {}.rbegin() << '\n';
     gout << unordered_set<int> {}.begin() << '\n';
     gout << unordered_multiset<int> {}.begin() << '\n';
     gout << map<int, int> {}.begin() << '\n';
-    gout << multimap<int, int> {}.begin() << '\n';
+    gout << multimap<int, int> {}.rbegin() << '\n';
     gout << unordered_map<int, int> {}.begin() << '\n';
     gout << unordered_multimap<int, int> {}.begin() << '\n';
     gout << istreambuf_iterator<char> {cin} << '\n';
