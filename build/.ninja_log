@@ -25,3 +25,9 @@
 2	1159	1697855177330007777	test/CMakeFiles/test_number.dir/test_number.cpp.o	e950b7e98e1d741c
 2	1108	1698326500292778150	test/CMakeFiles/test_istream.dir/test_istream.cpp.o	a2d87b26633d6e69
 2	1251	1698324653384072586	test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o	901719e29922166e
+2	1219	1698540924707638639	test/CMakeFiles/test_istream.dir/test_istream.cpp.o	a2d87b26633d6e69
+2	1280	1698540924767638308	test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o	34a57363f1bf2897
+1219	1293	1698540924784304882	test/test_istream	f14953a6f1b69235
+1280	1344	1698540924837637921	test/test_tuple	d4416c42da8c655c
+2	1104	1698540978377341614	test/CMakeFiles/test_istream.dir/test_istream.cpp.o	a2d87b26633d6e69
+1105	1159	1698540978434007967	test/test_istream	f14953a6f1b69235
