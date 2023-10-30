@@ -1,5 +1,5 @@
+#include <generic_to_string.hpp>
 #include <set>
-#include <to_str.hpp>
 #include <unordered_set>
 
 struct Foo

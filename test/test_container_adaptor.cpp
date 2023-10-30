@@ -1,6 +1,6 @@
+#include <generic_to_string.hpp>
 #include <queue>
 #include <stack>
-#include <to_str.hpp>
 
 int main()
 {

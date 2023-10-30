@@ -1,4 +1,4 @@
-// universal_print
+// generic_to_string
 // Created by kiki on 2022/9/25.17:29
 
 #pragma once
@@ -46,7 +46,8 @@ concept Any = is_same_v<any, remove_cvref_t<T>>;
 template <typename T>
 concept Optional = requires(T t)
 {
-	T {nullopt};
+	remove_cvref_t<T> {nullopt};
+    t.has_value();
 	requires !Any<T>;
 };
 
@@ -140,6 +141,12 @@ concept SequenceContainer = requires(T t) // 只要语法正确即可，不会�
 	requires !Map<T>;
 	requires !Set<T>;
 	requires !StreamInsertable<T>;
+};
+
+template <typename T>
+concept Sizeable = requires(T t)
+{
+    size(t) -> is_convertible_v<size_t>;
 };
 
 template <typename T>
@@ -245,10 +252,10 @@ struct generic_to_string_wrapper
             {       ios::hex, 16}
         };
 
-        auto              flags {os.flags()};
-        array<char, 1024> buf {};
-        to_chars_result   res {};
-        bool              failed {};
+        auto                     flags {os.flags()};
+        static array<char, 1024> buf {};
+        to_chars_result          res {};
+        bool                     failed {};
 
         if constexpr (is_same_v<remove_cvref_t<decltype(number)>, bool>)
         {
@@ -269,6 +276,12 @@ struct generic_to_string_wrapper
                 res = to_chars(begin(buf), end(buf), number, base);
             }
 
+            if (flags & ios::showbase)
+            {
+                if (base == 8) { os.write("0", 1); }
+                else if (base == 16) { os.write("0x", 2); }
+            }
+
             if (auto [end_ptr, err] = res; err == errc {}) [[likely]]
             {
                 os.write(data(buf), end_ptr - begin(buf));
@@ -281,9 +294,10 @@ struct generic_to_string_wrapper
         else if constexpr (is_floating_point_v<remove_reference_t<decltype(number)>>)
         {
             chars_format fmt {};
-            if (flags & ios::scientific & ios::fixed)
+            if ((flags & ios::scientific) && (flags & ios::fixed))
             {
                 fmt |= chars_format::hex;
+                os.write("0x", 2);
             }
             else if (flags & ios::scientific)
             {
@@ -323,7 +337,7 @@ struct generic_to_string_wrapper
     }
 
     // 对象内含的元素个数超过这个值后，打印元素个数
-    static constexpr size_t size_threshold {4};
+    static constexpr size_t size_threshold {8};
 
     static void generic_to_string(ostream& os, Tuple auto&& tup)   // pair、array、tuple
     {
@@ -337,7 +351,7 @@ struct generic_to_string_wrapper
         {
             if constexpr (tup_size > size_threshold)
             {
-                os << "<tuple with size " << tup_size << "> ";
+                os << "size=" << tup_size << ' ';
             }
 
             os << '(';
@@ -362,7 +376,7 @@ struct generic_to_string_wrapper
     static void generic_to_string(ostream& os, SequenceContainer auto&& container)
     {
         size_t container_size {};
-        if constexpr (is_convertible_v<decltype(size(declval<decltype(container)>())), size_t>)
+        if constexpr (Sizeable<decltype(container)>)
         {
             container_size = size(container);
         }
@@ -377,12 +391,13 @@ struct generic_to_string_wrapper
             return;
         }
 
+        os << '[';
+
         if (container_size > size_threshold)
         {
-            os << "<container with size " << container_size << "> ";
+            os << "size=" << container_size << ' ';
         }
 
-        os << '[';
         auto iter {begin(container)};
         auto end_iter {end(container)};
         for (; iter != end_iter;)
@@ -390,6 +405,7 @@ struct generic_to_string_wrapper
             generic_to_string(os, std::forward<decltype(*iter)>(*iter));
             if (++iter != end_iter) [[likely]] { os << ' '; }
         }
+
         os << ']';
     }
 
@@ -536,10 +552,10 @@ struct generic_to_string_wrapper
 
     static void generic_to_string(ostream& os, Optional auto&& opt)
     {
-        if (opt)
+        if (opt.has_value())
         {
             os << "optional: ";
-            generic_to_string(os, std::forward(opt.value()));   // value()返回内含对象的引用
+            generic_to_string(os, opt.value());   // value()返回内含对象的引用
         }
         else
         {
@@ -620,10 +636,10 @@ struct generic_to_string_wrapper
 
         if constexpr (!is_rvalue_reference_v<decltype(t)>)
         {
-            os << "addr " << addressof(t);
+            os << "addr " << addressof(t) << ' ';
         }
 
-        os << " size " << sizeof(t) << ']';
+        os << "size " << sizeof(t) << ']';
     }
 };
 

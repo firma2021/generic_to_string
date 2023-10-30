@@ -76,5 +76,23 @@
   "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_istream.dir/test_istream.cpp.o -c /home/firma/桌面/universal_print/test/test_istream.cpp",
   "file": "/home/firma/桌面/universal_print/test/test_istream.cpp",
   "output": "test/CMakeFiles/test_istream.dir/test_istream.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_optional.dir/test_optional.cpp.o -c /home/firma/桌面/universal_print/test/test_optional.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_optional.cpp",
+  "output": "test/CMakeFiles/test_optional.dir/test_optional.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_costom.dir/test_costom.cpp.o -c /home/firma/桌面/universal_print/test/test_costom.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_costom.cpp",
+  "output": "test/CMakeFiles/test_costom.dir/test_costom.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container.dir/test_container.cpp.o -c /home/firma/桌面/universal_print/test/test_container.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_container.cpp",
+  "output": "test/CMakeFiles/test_container.dir/test_container.cpp.o"
 }
 ]

@@ -485,6 +485,102 @@ build test/test_istream: CXX_EXECUTABLE_LINKER__test_istream_Debug test/CMakeFil
   TARGET_FILE = test/test_istream
   TARGET_PDB = test_istream.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_optional
+
+
+#############################################
+# Order-only phony target for test_optional
+
+build cmake_object_order_depends_target_test_optional: phony || test/CMakeFiles/test_optional.dir
+
+build test/CMakeFiles/test_optional.dir/test_optional.cpp.o: CXX_COMPILER__test_optional_unscanned_Debug /home/firma/桌面/universal_print/test/test_optional.cpp || cmake_object_order_depends_target_test_optional
+  DEP_FILE = test/CMakeFiles/test_optional.dir/test_optional.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_optional.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_optional.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_optional
+
+
+#############################################
+# Link the executable test/test_optional
+
+build test/test_optional: CXX_EXECUTABLE_LINKER__test_optional_Debug test/CMakeFiles/test_optional.dir/test_optional.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_optional.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_optional
+  TARGET_PDB = test_optional.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_costom
+
+
+#############################################
+# Order-only phony target for test_costom
+
+build cmake_object_order_depends_target_test_costom: phony || test/CMakeFiles/test_costom.dir
+
+build test/CMakeFiles/test_costom.dir/test_costom.cpp.o: CXX_COMPILER__test_costom_unscanned_Debug /home/firma/桌面/universal_print/test/test_costom.cpp || cmake_object_order_depends_target_test_costom
+  DEP_FILE = test/CMakeFiles/test_costom.dir/test_costom.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_costom.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_costom.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_costom
+
+
+#############################################
+# Link the executable test/test_costom
+
+build test/test_costom: CXX_EXECUTABLE_LINKER__test_costom_Debug test/CMakeFiles/test_costom.dir/test_costom.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_costom.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_costom
+  TARGET_PDB = test_costom.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_container
+
+
+#############################################
+# Order-only phony target for test_container
+
+build cmake_object_order_depends_target_test_container: phony || test/CMakeFiles/test_container.dir
+
+build test/CMakeFiles/test_container.dir/test_container.cpp.o: CXX_COMPILER__test_container_unscanned_Debug /home/firma/桌面/universal_print/test/test_container.cpp || cmake_object_order_depends_target_test_container
+  DEP_FILE = test/CMakeFiles/test_container.dir/test_container.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_container.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_container.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_container
+
+
+#############################################
+# Link the executable test/test_container
+
+build test/test_container: CXX_EXECUTABLE_LINKER__test_container_Debug test/CMakeFiles/test_container.dir/test_container.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_container.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_container
+  TARGET_PDB = test_container.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -514,7 +610,11 @@ build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
 
 build test_any: phony test/test_any
 
+build test_container: phony test/test_container
+
 build test_container_adaptor: phony test/test_container_adaptor
+
+build test_costom: phony test/test_costom
 
 build test_enum: phony test/test_enum
 
@@ -525,6 +625,8 @@ build test_iterator: phony test/test_iterator
 build test_map: phony test/test_map
 
 build test_number: phony test/test_number
+
+build test_optional: phony test/test_optional
 
 build test_pointer: phony test/test_pointer
 
@@ -553,7 +655,7 @@ build all: phony test/all
 #############################################
 # Folder: /home/firma/桌面/universal_print/build/test
 
-build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream
+build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream test/test_optional test/test_costom test/test_container
 
 # =============================================================================
 # Built-in targets

@@ -1,4 +1,4 @@
-#include <to_str.hpp>
+#include <generic_to_string.hpp>
 
 class Foo
 { };
@@ -16,4 +16,6 @@ int main()
 
     const any b;
     gout << b << '\n';
+
+    gout << any {nullopt} << '\n';
 }

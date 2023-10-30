@@ -1,4 +1,4 @@
-#include <to_str.hpp>
+#include <generic_to_string.hpp>
 
 enum class Color : unsigned char
 {

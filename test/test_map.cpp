@@ -1,5 +1,5 @@
+#include <generic_to_string.hpp>
 #include <map>
-#include <to_str.hpp>
 
 class Foo
 { };
