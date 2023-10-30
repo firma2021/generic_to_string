@@ -714,6 +714,8 @@ private:
     ostringstream oss;
 
 public:
+    ostream& get() { return oss; }
+
     generic_ostringstream& operator<<(auto&& arg)
     {
         generic_to_string_wrapper::generic_to_string(oss, std::forward<decltype(arg)>(arg));
@@ -730,8 +732,6 @@ public:
     {
         return std::move(oss).str();
     }
-
-    ostream& get() { return oss; }
 };
 
 class generic_osyncstringstream
@@ -740,9 +740,12 @@ private:
     static thread_local ostringstream oss;
 
 public:
+    static ostream& get() { return oss; }
+
     generic_osyncstringstream& operator<<(auto&& arg)
     {
-        generic_to_string_wrapper::generic_to_string(osyncstream {oss}, std::forward<decltype(arg)>(arg));
+        osyncstream synced_out(oss);
+        generic_to_string_wrapper::generic_to_string(synced_out, std::forward<decltype(arg)>(arg));
         return *this;
     }
 
@@ -756,8 +759,6 @@ public:
     {
         return std::move(oss).str();
     }
-
-    static ostream& get() { return oss; }
 };
 
 inline generic_ostream     gout {cout};
