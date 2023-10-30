@@ -59,7 +59,7 @@ concept Tuple = requires(T t)
 || requires(T t)
 {
 	requires tuple_size<remove_reference_t<T>>::value > 0;
-	requires is_same_v< remove_reference_t<decltype(get<0>(t))>, tuple_element_t<0, remove_reference_t<T>> >;
+	requires is_same_v< remove_reference_t<decltype(std::get<0>(t))>, tuple_element_t<0, remove_reference_t<T>> >;
 };
 
 template <typename T>
@@ -122,13 +122,14 @@ template< typename Derived, typename Base>
 concept derived_from_with_ref = derived_from<remove_reference_t<Derived>, remove_reference_t<Base>>;
 
 template <typename T>
-concept StreamInsertable = requires(ostream& os, T&& obj)
+concept StreamInsertable = requires(ostream& os, T obj)
 {
     {  os << obj } -> derived_from_with_ref<ostream>;
 	requires !Pointer<T>;
 	requires !Iterator<T>;
 	requires !Arithmetic<T>;
 	requires !TimePoint<T>;
+    requires !Duration<T>;
 };
 
 template <typename T>
@@ -170,16 +171,19 @@ concept Topable = requires(T t)
 template <typename T>
 concept InputStream = derived_from<remove_reference_t<T>, istream>;
 
+template <typename T>
+concept OutputStream = derived_from<remove_reference_t<T>, ostream>;
+
 // clang-format on
 struct generic_to_string_wrapper
 {
     generic_to_string_wrapper() = delete;
 
-    static void generic_to_string(ostream& os, Pointer auto&& pointer)
+    static void generic_to_string(OutputStream auto&& os, Pointer auto&& pointer)
     {
         os << get_type_name<remove_reference_t<decltype(pointer)>>();
 
-        if constexpr (is_volatile_v<decltype(pointer)>)
+        if constexpr (is_volatile_v<remove_pointer_t<remove_reference_t<decltype(pointer)>>>)
         {
         }
         else
@@ -201,13 +205,13 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, SmartPointer auto&& pointer)
+    static void generic_to_string(OutputStream auto&& os, SmartPointer auto&& pointer)
     {
         os << "smart pointer that wraps the raw pointer: ";
         generic_to_string(os, pointer.get());
     }
 
-    static void generic_to_string(ostream& os, Iterator auto&& iter)
+    static void generic_to_string(OutputStream auto&& os, Iterator auto&& iter)
     {
         if constexpr (IteratorAdaptor<decltype(iter)>)
         {
@@ -239,7 +243,7 @@ struct generic_to_string_wrapper
         os << " to " << get_type_name<remove_reference_t<typename remove_reference_t<decltype(iter)>::reference>>();   // const iterator的value_type不带const,而reference带const
     }
 
-    static void generic_to_string(ostream& os, Arithmetic auto&& number)
+    static void generic_to_string(OutputStream auto&& os, Arithmetic auto&& number)
     {
         static const map<ios::fmtflags, int> int_flag {
             {ios::dec, 10},
@@ -252,10 +256,10 @@ struct generic_to_string_wrapper
             {       ios::hex, 16}
         };
 
-        auto                     flags {os.flags()};
-        static array<char, 1024> buf {};
-        to_chars_result          res {};
-        bool                     failed {};
+        auto              flags {os.flags()};
+        array<char, 1024> buf {};
+        to_chars_result   res {};
+        bool              failed {};
 
         if constexpr (is_same_v<remove_cvref_t<decltype(number)>, bool>)
         {
@@ -331,7 +335,7 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, Enumeration auto&& enumer)
+    static void generic_to_string(OutputStream auto&& os, Enumeration auto&& enumer)
     {
         get_enum_name(os, enumer);
     }
@@ -339,7 +343,7 @@ struct generic_to_string_wrapper
     // 对象内含的元素个数超过这个值后，打印元素个数
     static constexpr size_t size_threshold {8};
 
-    static void generic_to_string(ostream& os, Tuple auto&& tup)   // pair、array、tuple
+    static void generic_to_string(OutputStream auto&& os, Tuple auto&& tup)   // pair、array、tuple
     {
         constexpr size_t tup_size {tuple_size_v<remove_reference_t<decltype(tup)>>};
         if constexpr (tup_size == 0)
@@ -373,7 +377,7 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, SequenceContainer auto&& container)
+    static void generic_to_string(OutputStream auto&& os, SequenceContainer auto&& container)
     {
         size_t container_size {};
         if constexpr (Sizeable<decltype(container)>)
@@ -409,7 +413,7 @@ struct generic_to_string_wrapper
         os << ']';
     }
 
-    static void generic_to_string(ostream& os, Set auto&& set)
+    static void generic_to_string(OutputStream auto&& os, Set auto&& set)
     {
         os << '{';
         auto iter {begin(set)};
@@ -422,7 +426,7 @@ struct generic_to_string_wrapper
         os << '}';
     }
 
-    static void generic_to_string(ostream& os, Map auto&& map)
+    static void generic_to_string(OutputStream auto&& os, Map auto&& map)
     {
         os << '{';
         auto iter {cbegin(map)};
@@ -437,7 +441,7 @@ struct generic_to_string_wrapper
         os << '}';
     }
 
-    static void generic_to_string(ostream& os, ContainerAdaptor auto&& adaptor)
+    static void generic_to_string(OutputStream auto&& os, ContainerAdaptor auto&& adaptor)
     {
         remove_cvref_t<decltype(adaptor)> copy {adaptor};
 
@@ -472,7 +476,7 @@ struct generic_to_string_wrapper
         os << ']';
     }
 
-    static void generic_to_string(ostream& os, InputStream auto&& input_stream)
+    static void generic_to_string(OutputStream auto&& os, InputStream auto&& input_stream)
     {
         os << "input stream with state: ";
 
@@ -550,7 +554,7 @@ struct generic_to_string_wrapper
         input_stream.seekg(beg_pos);
     }
 
-    static void generic_to_string(ostream& os, Optional auto&& opt)
+    static void generic_to_string(OutputStream auto&& os, Optional auto&& opt)
     {
         if (opt.has_value())
         {
@@ -563,7 +567,7 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, Variant auto&& variant)
+    static void generic_to_string(OutputStream auto&& os, Variant auto&& variant)
     {
         constexpr auto constexpr_for = []<size_t... N>(index_sequence<N...>, auto&& f) constexpr
         {
@@ -599,20 +603,19 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, Any auto&& any)
+    static void generic_to_string(OutputStream auto&& os, Any auto&& any)
     {
         os << "any<";
         get_typename_from_typeinfo(os, any.type());
         os << '>';
     }
 
-    static void generic_to_string(ostream& os, Duration auto&& d)
+    static void generic_to_string(OutputStream auto&& os, Duration auto&& d)
     {
-        os << duration_cast<chrono::duration<double, milli>>(std::forward(d)).count()
-           << " ms";
+        os << chrono::duration_cast<chrono::duration<double, milli>>(d);
     }
 
-    static void generic_to_string(ostream& os, TimePoint auto&& time_point)
+    static void generic_to_string(OutputStream auto&& os, TimePoint auto&& time_point)
     {
         if constexpr (is_same_v<remove_cvref_t<decltype(time_point)>, decltype(chrono::system_clock::now())>)
         {
@@ -625,12 +628,12 @@ struct generic_to_string_wrapper
         }
     }
 
-    static void generic_to_string(ostream& os, StreamInsertable auto&& val)
+    static void generic_to_string(OutputStream auto&& os, StreamInsertable auto&& val)
     {
         os << val;
     }
 
-    static void generic_to_string(ostream& os, auto&& t)
+    static void generic_to_string(OutputStream auto&& os, auto&& t)
     {
         os << get_type_name(t) << ' ' << '[';
 
@@ -652,6 +655,8 @@ public:
     explicit generic_ostream(ostream& os) noexcept:
     os {os} { }
 
+    ostream& get() { return os; }
+
     generic_ostream& operator<<(auto&& arg)
     {
         generic_to_string_wrapper::generic_to_string(os, std::forward<decltype(arg)>(arg));
@@ -663,8 +668,6 @@ public:
         func(os);   //os << func;
         return *this;
     }
-
-    ostream& get() { return os; }
 
     template <typename... Args>
     void operator()(Args&&... args)
@@ -682,9 +685,12 @@ public:
     explicit generic_osyncstream(ostream& os) noexcept:
     os {os} { }
 
+    ostream& get() { return os; }
+
     generic_osyncstream& operator<<(auto&& arg)
     {
-        generic_to_string_wrapper::generic_to_string(osyncstream {os}, std::forward<decltype(arg)>(arg));
+        osyncstream synced_out(os);
+        generic_to_string_wrapper::generic_to_string(synced_out, std::forward<decltype(arg)>(arg));
         return *this;
     }
 
@@ -694,7 +700,12 @@ public:
         return *this;
     }
 
-    ostream& get() { return os; }
+    template <typename... Args>
+    void operator()(Args&&... args)
+    {
+        osyncstream synced_out(os);
+        (generic_to_string_wrapper::generic_to_string(synced_out, std::forward<Args>(args)), ...);
+    }
 };
 
 class generic_ostringstream

@@ -45,7 +45,8 @@
 						12,
 						13,
 						14,
-						15
+						15,
+						16
 					]
 				}
 			],
@@ -76,7 +77,8 @@
 						12,
 						13,
 						14,
-						15
+						15,
+						16
 					]
 				}
 			],
@@ -136,6 +138,13 @@
 					"id" : "test_map::@36f028580bb02cc8272a",
 					"jsonFile" : "target-test_map-Debug-583b5a33628321d851e1.json",
 					"name" : "test_map",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_multithread::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test_multithread-Debug-8a25319914bf1f2f7161.json",
+					"name" : "test_multithread",
 					"projectIndex" : 0
 				},
 				{

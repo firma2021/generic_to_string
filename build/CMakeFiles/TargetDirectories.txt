@@ -16,5 +16,6 @@
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_optional.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_costom.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/test_container.dir
+/home/firma/桌面/universal_print/build/test/CMakeFiles/test_multithread.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/edit_cache.dir
 /home/firma/桌面/universal_print/build/test/CMakeFiles/rebuild_cache.dir

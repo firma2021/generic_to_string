@@ -94,5 +94,11 @@
   "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container.dir/test_container.cpp.o -c /home/firma/桌面/universal_print/test/test_container.cpp",
   "file": "/home/firma/桌面/universal_print/test/test_container.cpp",
   "output": "test/CMakeFiles/test_container.dir/test_container.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/universal_print/build",
+  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o -c /home/firma/桌面/universal_print/test/test_multithread.cpp",
+  "file": "/home/firma/桌面/universal_print/test/test_multithread.cpp",
+  "output": "test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o"
 }
 ]

@@ -581,6 +581,38 @@ build test/test_container: CXX_EXECUTABLE_LINKER__test_container_Debug test/CMak
   TARGET_FILE = test/test_container
   TARGET_PDB = test_container.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_multithread
+
+
+#############################################
+# Order-only phony target for test_multithread
+
+build cmake_object_order_depends_target_test_multithread: phony || test/CMakeFiles/test_multithread.dir
+
+build test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o: CXX_COMPILER__test_multithread_unscanned_Debug /home/firma/桌面/universal_print/test/test_multithread.cpp || cmake_object_order_depends_target_test_multithread
+  DEP_FILE = test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  OBJECT_DIR = test/CMakeFiles/test_multithread.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_multithread.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_multithread
+
+
+#############################################
+# Link the executable test/test_multithread
+
+build test/test_multithread: CXX_EXECUTABLE_LINKER__test_multithread_Debug test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_multithread.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_multithread
+  TARGET_PDB = test_multithread.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -624,6 +656,8 @@ build test_iterator: phony test/test_iterator
 
 build test_map: phony test/test_map
 
+build test_multithread: phony test/test_multithread
+
 build test_number: phony test/test_number
 
 build test_optional: phony test/test_optional
@@ -655,7 +689,7 @@ build all: phony test/all
 #############################################
 # Folder: /home/firma/桌面/universal_print/build/test
 
-build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream test/test_optional test/test_costom test/test_container
+build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream test/test_optional test/test_costom test/test_container test/test_multithread
 
 # =============================================================================
 # Built-in targets

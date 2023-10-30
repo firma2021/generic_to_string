@@ -3,7 +3,11 @@
 
 int main()
 {
-    auto now {chrono::steady_clock::now()};
+    auto beg {chrono::steady_clock::now()};
 
+    auto now {chrono::system_clock::now()};
     gout << now << '\n';
+
+    auto end {chrono::steady_clock::now()};
+    gout << (end - beg) << '\n';
 }
