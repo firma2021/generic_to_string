@@ -349,12 +349,12 @@ struct generic_to_string_wrapper
         }
         else
         {
+            os << '(';
+
             if constexpr (tup_size > size_threshold)
             {
                 os << "size=" << tup_size << ' ';
             }
-
-            os << '(';
 
             // args可以是任意数量的参数, 甚至是0个
             // 左折叠；长度为0的参数包允许一元折叠
