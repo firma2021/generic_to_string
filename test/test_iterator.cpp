@@ -11,13 +11,18 @@
 
 int main()
 {
-    gout << vector<int> {}.rbegin() << '\n';
-    gout << array<int, 3> {}.begin() << '\n';
-    gout << string {}.begin() << '\n';
+    vector              v {stdin, stdout, stderr};
+    const volatile auto iter {v.end() - 1};
+    gout << iter << '\n';
+
+    gout << vector<int> {}.crbegin() << '\n';
+
+    gout << array<int, 3> {}.cbegin() << '\n';
+    gout << string {}.crbegin() << '\n';
     gout << deque<int> {}.begin() << '\n';
     gout << forward_list<int> {}.begin() << '\n';
     gout << list<int> {}.rbegin() << '\n';
-    gout << set<int> {}.begin() << '\n';
+    gout << set<int> {}.cbegin() << '\n';
     gout << multiset<int> {}.rbegin() << '\n';
     gout << unordered_set<int> {}.begin() << '\n';
     gout << unordered_multiset<int> {}.begin() << '\n';

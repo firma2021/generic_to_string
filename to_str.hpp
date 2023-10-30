@@ -202,18 +202,34 @@ struct generic_to_string_wrapper
 
     static void generic_to_string(ostream& os, Iterator auto&& iter)
     {
-        using cate = typename iterator_traits<remove_cvref_t<decltype(iter)>>::iterator_category;
-        constexpr variant<input_iterator_tag, output_iterator_tag, forward_iterator_tag, bidirectional_iterator_tag, random_access_iterator_tag> categories {cate {}};
-        constexpr auto                                                                                                                           current_index {categories.index()};
-
-        vector cate_name {"input_iterator", "output_iterator", "forward_iterator", "bidirectional_iterator", "random_access_iterator"};
-
         if constexpr (IteratorAdaptor<decltype(iter)>)
         {
             os << "[iterator adaptor] ";
         }
-        os << cate_name[current_index];
-        os << " to" << get_type_name<typename remove_cvref_t<decltype(iter)>::value_type>();
+
+        if constexpr (contiguous_iterator<remove_cvref_t<decltype(iter)>>)
+        {
+            os << "contiguous_iterator";
+        }
+        else
+        {
+            using cate = typename iterator_traits<remove_cvref_t<decltype(iter)>>::iterator_category;
+
+            constexpr variant<
+                input_iterator_tag,
+                output_iterator_tag,
+                forward_iterator_tag,
+                bidirectional_iterator_tag,
+                random_access_iterator_tag>
+                           categories {cate {}};   // contiguous_iterator_tag is iterator concept
+            constexpr auto current_index {categories.index()};
+
+            static const array cate_name {"input_iterator", "output_iterator", "forward_iterator", "bidirectional_iterator", "random_access_iterator"};
+
+            os << cate_name.at(current_index);
+        }
+
+        os << " to " << get_type_name<remove_reference_t<typename remove_reference_t<decltype(iter)>::reference>>();   // const iterator的value_type不带const,而reference带const
     }
 
     static void generic_to_string(ostream& os, Arithmetic auto&& number)
@@ -508,9 +524,12 @@ struct generic_to_string_wrapper
         auto stream_size {istream_size(input_stream, beg_pos)};
         auto line_tally {count_line(input_stream, beg_pos)};
 
-        os << "input stream with size " << stream_size << ", line " << line_tally
-           << '\n'
-           << input_stream.rdbuf();
+        os << "input stream with size " << stream_size << ", line " << line_tally << '\n';
+
+        if (stream_size != 0)
+        {
+            os << input_stream.rdbuf();
+        }
 
         input_stream.seekg(beg_pos);
     }
