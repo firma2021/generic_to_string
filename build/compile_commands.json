@@ -1,104 +1,116 @@
 [
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_any.dir/test_any.cpp.o -c /home/firma/桌面/universal_print/test/test_any.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_any.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_any.dir/test_any.cpp.o -c /home/firma/桌面/generic_to_string/test/test_any.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_any.cpp",
   "output": "test/CMakeFiles/test_any.dir/test_any.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o -c /home/firma/桌面/universal_print/test/test_iterator.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_iterator.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o -c /home/firma/桌面/generic_to_string/test/test_iterator.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_iterator.cpp",
   "output": "test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_number.dir/test_number.cpp.o -c /home/firma/桌面/universal_print/test/test_number.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_number.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_number.dir/test_number.cpp.o -c /home/firma/桌面/generic_to_string/test/test_number.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_number.cpp",
   "output": "test/CMakeFiles/test_number.dir/test_number.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o -c /home/firma/桌面/universal_print/test/test_pointer.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_pointer.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o -c /home/firma/桌面/generic_to_string/test/test_pointer.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_pointer.cpp",
   "output": "test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_self.dir/test_self.cpp.o -c /home/firma/桌面/universal_print/test/test_self.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_self.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_self.dir/test_self.cpp.o -c /home/firma/桌面/generic_to_string/test/test_self.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_self.cpp",
   "output": "test/CMakeFiles/test_self.dir/test_self.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_set.dir/test_set.cpp.o -c /home/firma/桌面/universal_print/test/test_set.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_set.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_set.dir/test_set.cpp.o -c /home/firma/桌面/generic_to_string/test/test_set.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_set.cpp",
   "output": "test/CMakeFiles/test_set.dir/test_set.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_map.dir/test_map.cpp.o -c /home/firma/桌面/universal_print/test/test_map.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_map.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_map.dir/test_map.cpp.o -c /home/firma/桌面/generic_to_string/test/test_map.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_map.cpp",
   "output": "test/CMakeFiles/test_map.dir/test_map.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_time.dir/test_time.cpp.o -c /home/firma/桌面/universal_print/test/test_time.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_time.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_time.dir/test_time.cpp.o -c /home/firma/桌面/generic_to_string/test/test_time.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_time.cpp",
   "output": "test/CMakeFiles/test_time.dir/test_time.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o -c /home/firma/桌面/universal_print/test/test_tuple.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_tuple.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o -c /home/firma/桌面/generic_to_string/test/test_tuple.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_tuple.cpp",
   "output": "test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_variant.dir/test_variant.cpp.o -c /home/firma/桌面/universal_print/test/test_variant.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_variant.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_variant.dir/test_variant.cpp.o -c /home/firma/桌面/generic_to_string/test/test_variant.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_variant.cpp",
   "output": "test/CMakeFiles/test_variant.dir/test_variant.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_enum.dir/test_enum.cpp.o -c /home/firma/桌面/universal_print/test/test_enum.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_enum.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_enum.dir/test_enum.cpp.o -c /home/firma/桌面/generic_to_string/test/test_enum.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_enum.cpp",
   "output": "test/CMakeFiles/test_enum.dir/test_enum.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o -c /home/firma/桌面/universal_print/test/test_container_adaptor.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_container_adaptor.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o -c /home/firma/桌面/generic_to_string/test/test_container_adaptor.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_container_adaptor.cpp",
   "output": "test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_istream.dir/test_istream.cpp.o -c /home/firma/桌面/universal_print/test/test_istream.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_istream.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_istream.dir/test_istream.cpp.o -c /home/firma/桌面/generic_to_string/test/test_istream.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_istream.cpp",
   "output": "test/CMakeFiles/test_istream.dir/test_istream.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_optional.dir/test_optional.cpp.o -c /home/firma/桌面/universal_print/test/test_optional.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_optional.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_optional.dir/test_optional.cpp.o -c /home/firma/桌面/generic_to_string/test/test_optional.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_optional.cpp",
   "output": "test/CMakeFiles/test_optional.dir/test_optional.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_costom.dir/test_costom.cpp.o -c /home/firma/桌面/universal_print/test/test_costom.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_costom.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_costom.dir/test_costom.cpp.o -c /home/firma/桌面/generic_to_string/test/test_costom.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_costom.cpp",
   "output": "test/CMakeFiles/test_costom.dir/test_costom.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container.dir/test_container.cpp.o -c /home/firma/桌面/universal_print/test/test_container.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_container.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_container.dir/test_container.cpp.o -c /home/firma/桌面/generic_to_string/test/test_container.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_container.cpp",
   "output": "test/CMakeFiles/test_container.dir/test_container.cpp.o"
 },
 {
-  "directory": "/home/firma/桌面/universal_print/build",
-  "command": "/usr/bin/clang++ -I/home/firma/桌面/universal_print/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o -c /home/firma/桌面/universal_print/test/test_multithread.cpp",
-  "file": "/home/firma/桌面/universal_print/test/test_multithread.cpp",
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o -c /home/firma/桌面/generic_to_string/test/test_multithread.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_multithread.cpp",
   "output": "test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_sout.dir/test_sout.cpp.o -c /home/firma/桌面/generic_to_string/test/test_sout.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_sout.cpp",
+  "output": "test/CMakeFiles/test_sout.dir/test_sout.cpp.o"
+},
+{
+  "directory": "/home/firma/桌面/generic_to_string/build",
+  "command": "/usr/bin/g++ -I/home/firma/桌面/generic_to_string/test/.. -g -std=gnu++20 -o test/CMakeFiles/test_smartpointer.dir/test_smartpointer.cpp.o -c /home/firma/桌面/generic_to_string/test/test_smartpointer.cpp",
+  "file": "/home/firma/桌面/generic_to_string/test/test_smartpointer.cpp",
+  "output": "test/CMakeFiles/test_smartpointer.dir/test_smartpointer.cpp.o"
 }
 ]

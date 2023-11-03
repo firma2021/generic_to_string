@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: TestProject
+# Project: generic_to_string
 # Configurations: Debug
 # =============================================================================
 
@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/firma/桌面/universal_print/build/
+cmake_ninja_workdir = /home/firma/桌面/generic_to_string/build/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/firma/桌面/universal_print/build && /usr/bin/ccmake -S/home/firma/桌面/universal_print -B/home/firma/桌面/universal_print/build
+  COMMAND = cd /home/firma/桌面/generic_to_string/build && /usr/bin/ccmake -S/home/firma/桌面/generic_to_string -B/home/firma/桌面/generic_to_string/build
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/firma/桌面/universal_print/build && /usr/bin/cmake --regenerate-during-build -S/home/firma/桌面/universal_print -B/home/firma/桌面/universal_print/build
+  COMMAND = cd /home/firma/桌面/generic_to_string/build && /usr/bin/cmake --regenerate-during-build -S/home/firma/桌面/generic_to_string -B/home/firma/桌面/generic_to_string/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -66,7 +66,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /home/firma/桌面/universal_print/CMakeLists.txt
+# /home/firma/桌面/generic_to_string/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -78,10 +78,10 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_test_any: phony || test/CMakeFiles/test_any.dir
 
-build test/CMakeFiles/test_any.dir/test_any.cpp.o: CXX_COMPILER__test_any_unscanned_Debug /home/firma/桌面/universal_print/test/test_any.cpp || cmake_object_order_depends_target_test_any
+build test/CMakeFiles/test_any.dir/test_any.cpp.o: CXX_COMPILER__test_any_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_any.cpp || cmake_object_order_depends_target_test_any
   DEP_FILE = test/CMakeFiles/test_any.dir/test_any.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_any.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_any.dir
 
@@ -110,10 +110,10 @@ build test/test_any: CXX_EXECUTABLE_LINKER__test_any_Debug test/CMakeFiles/test_
 
 build cmake_object_order_depends_target_test_iterator: phony || test/CMakeFiles/test_iterator.dir
 
-build test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o: CXX_COMPILER__test_iterator_unscanned_Debug /home/firma/桌面/universal_print/test/test_iterator.cpp || cmake_object_order_depends_target_test_iterator
+build test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o: CXX_COMPILER__test_iterator_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_iterator.cpp || cmake_object_order_depends_target_test_iterator
   DEP_FILE = test/CMakeFiles/test_iterator.dir/test_iterator.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_iterator.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_iterator.dir
 
@@ -142,10 +142,10 @@ build test/test_iterator: CXX_EXECUTABLE_LINKER__test_iterator_Debug test/CMakeF
 
 build cmake_object_order_depends_target_test_number: phony || test/CMakeFiles/test_number.dir
 
-build test/CMakeFiles/test_number.dir/test_number.cpp.o: CXX_COMPILER__test_number_unscanned_Debug /home/firma/桌面/universal_print/test/test_number.cpp || cmake_object_order_depends_target_test_number
+build test/CMakeFiles/test_number.dir/test_number.cpp.o: CXX_COMPILER__test_number_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_number.cpp || cmake_object_order_depends_target_test_number
   DEP_FILE = test/CMakeFiles/test_number.dir/test_number.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_number.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_number.dir
 
@@ -174,10 +174,10 @@ build test/test_number: CXX_EXECUTABLE_LINKER__test_number_Debug test/CMakeFiles
 
 build cmake_object_order_depends_target_test_pointer: phony || test/CMakeFiles/test_pointer.dir
 
-build test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o: CXX_COMPILER__test_pointer_unscanned_Debug /home/firma/桌面/universal_print/test/test_pointer.cpp || cmake_object_order_depends_target_test_pointer
+build test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o: CXX_COMPILER__test_pointer_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_pointer.cpp || cmake_object_order_depends_target_test_pointer
   DEP_FILE = test/CMakeFiles/test_pointer.dir/test_pointer.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_pointer.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_pointer.dir
 
@@ -206,10 +206,10 @@ build test/test_pointer: CXX_EXECUTABLE_LINKER__test_pointer_Debug test/CMakeFil
 
 build cmake_object_order_depends_target_test_self: phony || test/CMakeFiles/test_self.dir
 
-build test/CMakeFiles/test_self.dir/test_self.cpp.o: CXX_COMPILER__test_self_unscanned_Debug /home/firma/桌面/universal_print/test/test_self.cpp || cmake_object_order_depends_target_test_self
+build test/CMakeFiles/test_self.dir/test_self.cpp.o: CXX_COMPILER__test_self_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_self.cpp || cmake_object_order_depends_target_test_self
   DEP_FILE = test/CMakeFiles/test_self.dir/test_self.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_self.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_self.dir
 
@@ -238,10 +238,10 @@ build test/test_self: CXX_EXECUTABLE_LINKER__test_self_Debug test/CMakeFiles/tes
 
 build cmake_object_order_depends_target_test_set: phony || test/CMakeFiles/test_set.dir
 
-build test/CMakeFiles/test_set.dir/test_set.cpp.o: CXX_COMPILER__test_set_unscanned_Debug /home/firma/桌面/universal_print/test/test_set.cpp || cmake_object_order_depends_target_test_set
+build test/CMakeFiles/test_set.dir/test_set.cpp.o: CXX_COMPILER__test_set_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_set.cpp || cmake_object_order_depends_target_test_set
   DEP_FILE = test/CMakeFiles/test_set.dir/test_set.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_set.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_set.dir
 
@@ -270,10 +270,10 @@ build test/test_set: CXX_EXECUTABLE_LINKER__test_set_Debug test/CMakeFiles/test_
 
 build cmake_object_order_depends_target_test_map: phony || test/CMakeFiles/test_map.dir
 
-build test/CMakeFiles/test_map.dir/test_map.cpp.o: CXX_COMPILER__test_map_unscanned_Debug /home/firma/桌面/universal_print/test/test_map.cpp || cmake_object_order_depends_target_test_map
+build test/CMakeFiles/test_map.dir/test_map.cpp.o: CXX_COMPILER__test_map_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_map.cpp || cmake_object_order_depends_target_test_map
   DEP_FILE = test/CMakeFiles/test_map.dir/test_map.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_map.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_map.dir
 
@@ -302,10 +302,10 @@ build test/test_map: CXX_EXECUTABLE_LINKER__test_map_Debug test/CMakeFiles/test_
 
 build cmake_object_order_depends_target_test_time: phony || test/CMakeFiles/test_time.dir
 
-build test/CMakeFiles/test_time.dir/test_time.cpp.o: CXX_COMPILER__test_time_unscanned_Debug /home/firma/桌面/universal_print/test/test_time.cpp || cmake_object_order_depends_target_test_time
+build test/CMakeFiles/test_time.dir/test_time.cpp.o: CXX_COMPILER__test_time_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_time.cpp || cmake_object_order_depends_target_test_time
   DEP_FILE = test/CMakeFiles/test_time.dir/test_time.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_time.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_time.dir
 
@@ -334,10 +334,10 @@ build test/test_time: CXX_EXECUTABLE_LINKER__test_time_Debug test/CMakeFiles/tes
 
 build cmake_object_order_depends_target_test_tuple: phony || test/CMakeFiles/test_tuple.dir
 
-build test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o: CXX_COMPILER__test_tuple_unscanned_Debug /home/firma/桌面/universal_print/test/test_tuple.cpp || cmake_object_order_depends_target_test_tuple
+build test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o: CXX_COMPILER__test_tuple_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_tuple.cpp || cmake_object_order_depends_target_test_tuple
   DEP_FILE = test/CMakeFiles/test_tuple.dir/test_tuple.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_tuple.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_tuple.dir
 
@@ -366,10 +366,10 @@ build test/test_tuple: CXX_EXECUTABLE_LINKER__test_tuple_Debug test/CMakeFiles/t
 
 build cmake_object_order_depends_target_test_variant: phony || test/CMakeFiles/test_variant.dir
 
-build test/CMakeFiles/test_variant.dir/test_variant.cpp.o: CXX_COMPILER__test_variant_unscanned_Debug /home/firma/桌面/universal_print/test/test_variant.cpp || cmake_object_order_depends_target_test_variant
+build test/CMakeFiles/test_variant.dir/test_variant.cpp.o: CXX_COMPILER__test_variant_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_variant.cpp || cmake_object_order_depends_target_test_variant
   DEP_FILE = test/CMakeFiles/test_variant.dir/test_variant.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_variant.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_variant.dir
 
@@ -398,10 +398,10 @@ build test/test_variant: CXX_EXECUTABLE_LINKER__test_variant_Debug test/CMakeFil
 
 build cmake_object_order_depends_target_test_enum: phony || test/CMakeFiles/test_enum.dir
 
-build test/CMakeFiles/test_enum.dir/test_enum.cpp.o: CXX_COMPILER__test_enum_unscanned_Debug /home/firma/桌面/universal_print/test/test_enum.cpp || cmake_object_order_depends_target_test_enum
+build test/CMakeFiles/test_enum.dir/test_enum.cpp.o: CXX_COMPILER__test_enum_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_enum.cpp || cmake_object_order_depends_target_test_enum
   DEP_FILE = test/CMakeFiles/test_enum.dir/test_enum.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_enum.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_enum.dir
 
@@ -430,10 +430,10 @@ build test/test_enum: CXX_EXECUTABLE_LINKER__test_enum_Debug test/CMakeFiles/tes
 
 build cmake_object_order_depends_target_test_container_adaptor: phony || test/CMakeFiles/test_container_adaptor.dir
 
-build test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o: CXX_COMPILER__test_container_adaptor_unscanned_Debug /home/firma/桌面/universal_print/test/test_container_adaptor.cpp || cmake_object_order_depends_target_test_container_adaptor
+build test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o: CXX_COMPILER__test_container_adaptor_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_container_adaptor.cpp || cmake_object_order_depends_target_test_container_adaptor
   DEP_FILE = test/CMakeFiles/test_container_adaptor.dir/test_container_adaptor.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_container_adaptor.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_container_adaptor.dir
 
@@ -462,10 +462,10 @@ build test/test_container_adaptor: CXX_EXECUTABLE_LINKER__test_container_adaptor
 
 build cmake_object_order_depends_target_test_istream: phony || test/CMakeFiles/test_istream.dir
 
-build test/CMakeFiles/test_istream.dir/test_istream.cpp.o: CXX_COMPILER__test_istream_unscanned_Debug /home/firma/桌面/universal_print/test/test_istream.cpp || cmake_object_order_depends_target_test_istream
+build test/CMakeFiles/test_istream.dir/test_istream.cpp.o: CXX_COMPILER__test_istream_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_istream.cpp || cmake_object_order_depends_target_test_istream
   DEP_FILE = test/CMakeFiles/test_istream.dir/test_istream.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_istream.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_istream.dir
 
@@ -494,10 +494,10 @@ build test/test_istream: CXX_EXECUTABLE_LINKER__test_istream_Debug test/CMakeFil
 
 build cmake_object_order_depends_target_test_optional: phony || test/CMakeFiles/test_optional.dir
 
-build test/CMakeFiles/test_optional.dir/test_optional.cpp.o: CXX_COMPILER__test_optional_unscanned_Debug /home/firma/桌面/universal_print/test/test_optional.cpp || cmake_object_order_depends_target_test_optional
+build test/CMakeFiles/test_optional.dir/test_optional.cpp.o: CXX_COMPILER__test_optional_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_optional.cpp || cmake_object_order_depends_target_test_optional
   DEP_FILE = test/CMakeFiles/test_optional.dir/test_optional.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_optional.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_optional.dir
 
@@ -526,10 +526,10 @@ build test/test_optional: CXX_EXECUTABLE_LINKER__test_optional_Debug test/CMakeF
 
 build cmake_object_order_depends_target_test_costom: phony || test/CMakeFiles/test_costom.dir
 
-build test/CMakeFiles/test_costom.dir/test_costom.cpp.o: CXX_COMPILER__test_costom_unscanned_Debug /home/firma/桌面/universal_print/test/test_costom.cpp || cmake_object_order_depends_target_test_costom
+build test/CMakeFiles/test_costom.dir/test_costom.cpp.o: CXX_COMPILER__test_costom_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_costom.cpp || cmake_object_order_depends_target_test_costom
   DEP_FILE = test/CMakeFiles/test_costom.dir/test_costom.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_costom.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_costom.dir
 
@@ -558,10 +558,10 @@ build test/test_costom: CXX_EXECUTABLE_LINKER__test_costom_Debug test/CMakeFiles
 
 build cmake_object_order_depends_target_test_container: phony || test/CMakeFiles/test_container.dir
 
-build test/CMakeFiles/test_container.dir/test_container.cpp.o: CXX_COMPILER__test_container_unscanned_Debug /home/firma/桌面/universal_print/test/test_container.cpp || cmake_object_order_depends_target_test_container
+build test/CMakeFiles/test_container.dir/test_container.cpp.o: CXX_COMPILER__test_container_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_container.cpp || cmake_object_order_depends_target_test_container
   DEP_FILE = test/CMakeFiles/test_container.dir/test_container.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_container.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_container.dir
 
@@ -590,10 +590,10 @@ build test/test_container: CXX_EXECUTABLE_LINKER__test_container_Debug test/CMak
 
 build cmake_object_order_depends_target_test_multithread: phony || test/CMakeFiles/test_multithread.dir
 
-build test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o: CXX_COMPILER__test_multithread_unscanned_Debug /home/firma/桌面/universal_print/test/test_multithread.cpp || cmake_object_order_depends_target_test_multithread
+build test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o: CXX_COMPILER__test_multithread_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_multithread.cpp || cmake_object_order_depends_target_test_multithread
   DEP_FILE = test/CMakeFiles/test_multithread.dir/test_multithread.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I/home/firma/桌面/universal_print/test/..
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
   OBJECT_DIR = test/CMakeFiles/test_multithread.dir
   OBJECT_FILE_DIR = test/CMakeFiles/test_multithread.dir
 
@@ -613,12 +613,76 @@ build test/test_multithread: CXX_EXECUTABLE_LINKER__test_multithread_Debug test/
   TARGET_FILE = test/test_multithread
   TARGET_PDB = test_multithread.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test_sout
+
+
+#############################################
+# Order-only phony target for test_sout
+
+build cmake_object_order_depends_target_test_sout: phony || test/CMakeFiles/test_sout.dir
+
+build test/CMakeFiles/test_sout.dir/test_sout.cpp.o: CXX_COMPILER__test_sout_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_sout.cpp || cmake_object_order_depends_target_test_sout
+  DEP_FILE = test/CMakeFiles/test_sout.dir/test_sout.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
+  OBJECT_DIR = test/CMakeFiles/test_sout.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_sout.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_sout
+
+
+#############################################
+# Link the executable test/test_sout
+
+build test/test_sout: CXX_EXECUTABLE_LINKER__test_sout_Debug test/CMakeFiles/test_sout.dir/test_sout.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_sout.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_sout
+  TARGET_PDB = test_sout.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_smartpointer
+
+
+#############################################
+# Order-only phony target for test_smartpointer
+
+build cmake_object_order_depends_target_test_smartpointer: phony || test/CMakeFiles/test_smartpointer.dir
+
+build test/CMakeFiles/test_smartpointer.dir/test_smartpointer.cpp.o: CXX_COMPILER__test_smartpointer_unscanned_Debug /home/firma/桌面/generic_to_string/test/test_smartpointer.cpp || cmake_object_order_depends_target_test_smartpointer
+  DEP_FILE = test/CMakeFiles/test_smartpointer.dir/test_smartpointer.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/firma/桌面/generic_to_string/test/..
+  OBJECT_DIR = test/CMakeFiles/test_smartpointer.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/test_smartpointer.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_smartpointer
+
+
+#############################################
+# Link the executable test/test_smartpointer
+
+build test/test_smartpointer: CXX_EXECUTABLE_LINKER__test_smartpointer_Debug test/CMakeFiles/test_smartpointer.dir/test_smartpointer.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = test/CMakeFiles/test_smartpointer.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/test_smartpointer
+  TARGET_PDB = test_smartpointer.dbg
+
 
 #############################################
 # Utility command for edit_cache
 
 build test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/firma/桌面/universal_print/build/test && /usr/bin/ccmake -S/home/firma/桌面/universal_print -B/home/firma/桌面/universal_print/build
+  COMMAND = cd /home/firma/桌面/generic_to_string/build/test && /usr/bin/ccmake -S/home/firma/桌面/generic_to_string -B/home/firma/桌面/generic_to_string/build
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -630,7 +694,7 @@ build test/edit_cache: phony test/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/firma/桌面/universal_print/build/test && /usr/bin/cmake --regenerate-during-build -S/home/firma/桌面/universal_print -B/home/firma/桌面/universal_print/build
+  COMMAND = cd /home/firma/桌面/generic_to_string/build/test && /usr/bin/cmake --regenerate-during-build -S/home/firma/桌面/generic_to_string -B/home/firma/桌面/generic_to_string/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -668,6 +732,10 @@ build test_self: phony test/test_self
 
 build test_set: phony test/test_set
 
+build test_smartpointer: phony test/test_smartpointer
+
+build test_sout: phony test/test_sout
+
 build test_time: phony test/test_time
 
 build test_tuple: phony test/test_tuple
@@ -680,16 +748,16 @@ build test_variant: phony test/test_variant
 # =============================================================================
 
 #############################################
-# Folder: /home/firma/桌面/universal_print/build
+# Folder: /home/firma/桌面/generic_to_string/build
 
 build all: phony test/all
 
 # =============================================================================
 
 #############################################
-# Folder: /home/firma/桌面/universal_print/build/test
+# Folder: /home/firma/桌面/generic_to_string/build/test
 
-build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream test/test_optional test/test_costom test/test_container test/test_multithread
+build test/all: phony test/test_any test/test_iterator test/test_number test/test_pointer test/test_self test/test_set test/test_map test/test_time test/test_tuple test/test_variant test/test_enum test/test_container_adaptor test/test_istream test/test_optional test/test_costom test/test_container test/test_multithread test/test_sout test/test_smartpointer
 
 # =============================================================================
 # Built-in targets
@@ -698,14 +766,14 @@ build test/all: phony test/test_any test/test_iterator test/test_number test/tes
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/firma/桌面/universal_print/CMakeLists.txt /home/firma/桌面/universal_print/test/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/firma/桌面/generic_to_string/CMakeLists.txt /home/firma/桌面/generic_to_string/test/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/firma/桌面/universal_print/CMakeLists.txt /home/firma/桌面/universal_print/test/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
+build /home/firma/桌面/generic_to_string/CMakeLists.txt /home/firma/桌面/generic_to_string/test/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.7/CMakeCCompiler.cmake CMakeFiles/3.27.7/CMakeCXXCompiler.cmake CMakeFiles/3.27.7/CMakeSystem.cmake: phony
 
 
 #############################################

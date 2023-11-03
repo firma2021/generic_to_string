@@ -9,7 +9,6 @@
 #include <algorithm>
 #include <any>
 #include <array>
-#include <bits/chrono.h>
 #include <charconv>
 #include <chrono>
 #include <concepts>
@@ -23,6 +22,7 @@
 #include <ratio>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <syncstream>
 #include <system_error>
 #include <tuple>
@@ -130,6 +130,7 @@ concept StreamInsertable = requires(ostream& os, T obj)
 	requires !Arithmetic<T>;
 	requires !TimePoint<T>;
     requires !Duration<T>;
+    requires !SmartPointer<T>;
 };
 
 template <typename T>
@@ -147,7 +148,7 @@ concept SequenceContainer = requires(T t) // 只要语法正确即可，不会�
 template <typename T>
 concept Sizeable = requires(T t)
 {
-    size(t) -> is_convertible_v<size_t>;
+   { size(t) } -> convertible_to<size_t>;
 };
 
 template <typename T>
@@ -635,7 +636,7 @@ struct generic_to_string_wrapper
 
     static void generic_to_string(OutputStream auto&& os, auto&& t)
     {
-        os << get_type_name(t) << ' ' << '[';
+        os << get_type_name(std::forward<decltype(t)>(t)) << ' ' << '[';
 
         if constexpr (!is_rvalue_reference_v<decltype(t)>)
         {
@@ -646,26 +647,20 @@ struct generic_to_string_wrapper
     }
 };
 
-class generic_ostream
+class ostream_generic_wrapper
 {
 private:
     ostream& os;
 
 public:
-    explicit generic_ostream(ostream& os) noexcept:
+    explicit ostream_generic_wrapper(ostream& os) noexcept:
     os {os} { }
 
     ostream& get() { return os; }
 
-    generic_ostream& operator<<(auto&& arg)
+    ostream_generic_wrapper& operator<<(auto&& arg)
     {
         generic_to_string_wrapper::generic_to_string(os, std::forward<decltype(arg)>(arg));
-        return *this;
-    }
-
-    generic_ostream& operator<<(ostream& (*func)(ostream&))
-    {
-        func(os);   //os << func;
         return *this;
     }
 
@@ -674,53 +669,23 @@ public:
     {
         (generic_to_string_wrapper::generic_to_string(os, std::forward<Args>(args)), ...);
     }
-};
 
-class generic_osyncstream
-{
-private:
-    ostream& os;
-
-public:
-    explicit generic_osyncstream(ostream& os) noexcept:
-    os {os} { }
-
-    ostream& get() { return os; }
-
-    generic_osyncstream& operator<<(auto&& arg)
+    // gout << endl;
+    ostream_generic_wrapper& operator<<(ostream& (*func)(ostream&))
     {
-        osyncstream synced_out(os);
-        generic_to_string_wrapper::generic_to_string(synced_out, std::forward<decltype(arg)>(arg));
+        func(os);   //os << func;
         return *this;
-    }
-
-    generic_osyncstream& operator<<(ostream& (*func)(ostream&))
-    {
-        func(os);
-        return *this;
-    }
-
-    template <typename... Args>
-    void operator()(Args&&... args)
-    {
-        osyncstream synced_out(os);
-        (generic_to_string_wrapper::generic_to_string(synced_out, std::forward<Args>(args)), ...);
     }
 };
 
-class generic_ostringstream
+class ostringstream_generic_wrapper : public ostream_generic_wrapper
 {
 private:
-    ostringstream oss;
+    ostringstream& oss;
 
 public:
-    ostream& get() { return oss; }
-
-    generic_ostringstream& operator<<(auto&& arg)
-    {
-        generic_to_string_wrapper::generic_to_string(oss, std::forward<decltype(arg)>(arg));
-        return *this;
-    }
+    explicit ostringstream_generic_wrapper(ostringstream& oss) noexcept:
+    ostream_generic_wrapper {oss}, oss {oss} { }
 
     string str()
     {
@@ -734,35 +699,12 @@ public:
     }
 };
 
-class generic_osyncstringstream
-{
-private:
-    static thread_local ostringstream oss;
+inline osyncstream                       synced_out {cout};
+inline ostringstream                     oss;
+inline static thread_local ostringstream sync_oss;
 
-public:
-    static ostream& get() { return oss; }
+inline ostream_generic_wrapper gout {cout};
+inline ostream_generic_wrapper sync_gout {synced_out};
 
-    generic_osyncstringstream& operator<<(auto&& arg)
-    {
-        osyncstream synced_out(oss);
-        generic_to_string_wrapper::generic_to_string(synced_out, std::forward<decltype(arg)>(arg));
-        return *this;
-    }
-
-    static string str()
-    {
-        string s {oss.str()};
-        oss.str("");
-        return s;
-    }
-    static string shrink()
-    {
-        return std::move(oss).str();
-    }
-};
-
-inline generic_ostream     gout {cout};
-inline generic_osyncstream sync_gout {cout};
-
-inline generic_ostringstream     sout;
-inline generic_osyncstringstream sync_sout;
+inline ostringstream_generic_wrapper sout {oss};
+inline ostringstream_generic_wrapper sync_sout {sync_oss};

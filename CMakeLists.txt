@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.22)
 
-project(TestProject)
+project(generic_to_string)
 
 set(CMAKE_CXX_STANDARD 20)
 

@@ -5,7 +5,7 @@
 
 int main()
 {
-    ifstream fin {"../../test/test_istream.cpp"};
+    ifstream fin {"../../../test/test_istream.cpp"};
     gout << fin << '\n';
 
     int a {};

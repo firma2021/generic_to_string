@@ -17,4 +17,6 @@ int main()
     };
 
     gout << c << '\n';
+
+    gout << vector<int> {} << '\n';
 }

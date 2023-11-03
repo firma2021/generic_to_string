@@ -3,5 +3,6 @@
 int main()
 {
     gout << gout << '\n';
+    gout << cout << endl;
     gout << gout.get() << '\n';
 }

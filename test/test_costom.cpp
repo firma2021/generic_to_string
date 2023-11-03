@@ -20,7 +20,7 @@ struct Zoo
 
 int main()
 {
-    const Foo f {1, 2};
+    Foo       f {1, 2};
     const Zoo z {3, 4};
 
     gout << f << '\n';
